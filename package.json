@@ -1,7 +1,7 @@
 {
-  "name": "next-sass-starter",
-  "title": "Next.js Sass Starter",
-  "description": "Use Sass to start your Next.js app with CSS superpowers!",
+  "name": "jamstack-handbook",
+  "title": "Jamstack Handbook",
+  "description": "Building fast, dynamic apps with Javascript and the static web",
   "version": "0.1.0",
   "author": {
     "name": "Colby Fayock",
@@ -15,23 +15,21 @@
     "sass": "^1.26.10"
   },
   "keywords": [
-    "nextjs",
-    "next js",
-    "sass",
-    "css"
+    "jamstack",
+    "static"
   ],
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start"
   },
-  "homepage": "https://next-sass-starter.vercel.app",
+  "homepage": "https://jamstackhandbook.netlify.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/colbyfayock/next-sass-starter"
+    "url": "https://github.com/colbyfayock/jamstackhandbook.com"
   },
   "bugs": {
-    "url": "https://github.com/colbyfayock/next-sass-starter/issues"
+    "url": "https://github.com/colbyfayock/jamstackhandbook.com/issues"
   }
 }
