@@ -1,0 +1,111 @@
+$color-primary: blueviolet;
+
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+
+  a {
+
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+
+  }
+
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.sronly:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+
+
+
+/* Form */
+
+.form {
+
+  max-width: 15rem;
+  margin: 2rem auto 0;
+
+  @media (max-width: 600px) {
+    padding: 0 2rem;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .form {
+    width: 100%;
+    max-width: none;
+    font-size: 1.2em;
+  }
+}
+
+.form p,
+.form input,
+.form button {
+  width: 100%;
+  text-align: center;
+}
+
+.form p {
+  color: var(--color-gray-light);
+  font-size: .8em;
+  font-weight: 400;
+}
+
+.form input {
+  height: 2.5em;
+  font-size: 1.1em;
+}
+
+.form[data-theme="light"] input {
+  border: solid 2px var(--color-gray-medium);
+}
+
+.form button {
+  color: white;
+  margin-top: .6em;
+}
