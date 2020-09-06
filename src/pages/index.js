@@ -70,7 +70,9 @@ export default function Home() {
           Want to bulk order? Reach out at hello@colbyfayock.com
         </p>
 
-        <BuyWithStripe prefix="Pre-Order with" onClick={handleOnPurchase} disabled={state.loading} />
+        <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
+          Pre-Order for {cost}
+        </BuyWithStripe>
 
         <div>
           {state.error?.message}
