@@ -2,7 +2,7 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-const WEBSITE_HOST = process.env.NEXT_WEBSITE_HOST;
+const WEBSITE_HOST = process.env.NEXT_PUBLIC_WEBSITE_HOST;
 const PAYMENT_SUCCESS_PATH = '/success';
 const PAYMENT_CANCEL_PATH = '/canceled';
 
