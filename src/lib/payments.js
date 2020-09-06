@@ -4,7 +4,7 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 const WEBSITE_HOST = process.env.NEXT_PUBLIC_WEBSITE_HOST;
 const PAYMENT_SUCCESS_PATH = '/success';
-const PAYMENT_CANCEL_PATH = '/canceled';
+const PAYMENT_CANCEL_PATH = '/';
 
 export async function initCheckout({ lineItems } = {}) {
   const errorBase = 'Failed to initiate checkout';
@@ -18,8 +18,8 @@ export async function initCheckout({ lineItems } = {}) {
   const { error } = await stripe.redirectToCheckout({
     mode: 'payment',
     lineItems,
-    successUrl: `${WEBSITE_HOST}/${PAYMENT_SUCCESS_PATH}?session_id={CHECKOUT_SESSION_ID}`,
-    cancelUrl: `${WEBSITE_HOST}/${PAYMENT_CANCEL_PATH}`,
+    successUrl: `${WEBSITE_HOST}${PAYMENT_SUCCESS_PATH}?session_id={CHECKOUT_SESSION_ID}`,
+    cancelUrl: `${WEBSITE_HOST}${PAYMENT_CANCEL_PATH}`,
   });
 
   if ( error ) {
