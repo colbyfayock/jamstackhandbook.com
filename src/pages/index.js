@@ -4,6 +4,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
 
 import Footer from '../components/Footer';
+import BuyWithStripe from '../components/BuyWithStripe';
 
 import { initCheckout, formatPrice } from '../lib/payments';
 
@@ -69,9 +70,7 @@ export default function Home() {
           Want to bulk order? Reach out at hello@colbyfayock.com
         </p>
 
-        <button role="link" onClick={handleOnPurchase} disabled={state.loading}>
-          {state.loading ? `Loading...` : `Buy Now`}
-        </button>
+        <BuyWithStripe prefix="Pre-Order with" onClick={handleOnPurchase} disabled={state.loading} />
 
         <div>
           {state.error?.message}

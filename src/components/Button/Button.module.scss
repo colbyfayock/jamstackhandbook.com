@@ -1,0 +1,14 @@
+.button {
+  color: white;
+  height: 2.1155em;
+  font-family: inherit;
+  font-size: 1.3em;
+  font-weight: 700;
+  line-height: 2em;
+  background-color: var(--color-blue-medium);
+  padding: 1.2em 1.4em;
+  border-radius: var(--border-radius-small);
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .4);
+}
