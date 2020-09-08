@@ -207,6 +207,36 @@
 
 }
 
-.orer {
+.order {
+
   text-align: center;
+
+  @media (min-width: 960px) {
+    font-size: 1em;
+  }
+
+  button {
+
+    font-size: .9em;
+
+    @media (min-width: 960px) {
+      font-size: 1em;
+    }
+
+  }
+
+}
+
+.updates {
+
+  button {
+
+    font-size: .9em;
+
+    @media (min-width: 960px) {
+      font-size: 1em;
+    }
+
+  }
+
 }
