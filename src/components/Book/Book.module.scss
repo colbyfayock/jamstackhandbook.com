@@ -16,7 +16,6 @@ $book-thickness: 0.375em;
   position: relative;
   transform-style: preserve-3d;
   transition: 1s ease;
-  animation: 1s ease 0s 1 initAnimation;
 
   @media (min-width: 960px) {
     transform: rotateY(-23deg);
@@ -91,12 +90,3 @@ $book-thickness: 0.375em;
 
 }
 
-
-@keyframes initAnimation {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(-23deg);
-  }
-}
