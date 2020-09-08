@@ -3,6 +3,11 @@ import Head from 'next/head'
 
 import styles from '../styles/Home.module.scss'
 
+import Main from '../components/Main';
+import Section from '../components/Section';
+import Hero from '../components/Hero';
+import Container from '../components/Container';
+import Book from '../components/Book';
 import Footer from '../components/Footer';
 import BuyWithStripe from '../components/BuyWithStripe';
 
@@ -46,43 +51,67 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>Jamstack Handbook</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Jamstack Handbook
-        </h1>
+      <Main>
 
-        <p className={styles.description}>
-          Building fast, dynamic apps with Javascript and the static web
-        </p>
+        <Section backgroundColor="gray-light">
+          <Container>
+            <Hero>
 
-        <p className={styles.description}>
-          Learn everything you need to know about the Jamstack including
-          3 tutorials to learn by doing for only { cost }
-        </p>
+              <div className={styles.hero}>
 
-        <p>
-          Want to bulk order? Reach out at hello@colbyfayock.com
-        </p>
+                <div className={styles.heroContent}>
 
-        <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
-          Pre-Order for {cost}
-        </BuyWithStripe>
+                  <h1>Jamstack Handbook</h1>
 
-        <div>
-          {state.error?.message}
-        </div>
+                  <p className={styles.tagline}>
+                    Get started on the Jamstack with this <strong>deep dive</strong> including <strong>3 tutorials</strong>.
+                  </p>
 
-      </main>
+                  <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
+                    Pre-Order for {cost}
+                  </BuyWithStripe>
+                </div>
+
+                <div className={styles.heroBook}>
+                  <Book />
+                </div>
+
+              </div>
+
+            </Hero>
+          </Container>
+        </Section>
+
+        <Section backgroundColor="blue-dark">
+          <Container>
+
+            <p>
+              Building fast, dynamic apps with Javascript and the static web
+            </p>
+
+            <p>
+              Learn everything you need to know about the Jamstack including
+              3 tutorials to learn by doing for only { cost }
+            </p>
+
+            <p>
+              Want to bulk order? Reach out at hello@colbyfayock.com
+            </p>
+
+          </Container>
+        </Section>
+
+      </Main>
 
       <Footer />
 
-    </div>
+    </>
   )
 }
 
