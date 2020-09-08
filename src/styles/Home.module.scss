@@ -1,3 +1,13 @@
+.sronly:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .hero {
 
   @media (min-width: 960px) {
@@ -42,7 +52,7 @@
   }
 
   button {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 
 }
@@ -106,4 +116,97 @@
 .form button {
   color: white;
   margin-top: .6em;
+}
+
+
+.highlights {
+
+  padding: 3rem 0 !important;
+
+  ul {
+
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: .8em;
+    padding: 0;
+    margin: 0;
+
+    @media (min-width: 960px) {
+      font-size: 1em;
+      flex-direction: row;
+    }
+
+  }
+
+  li {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    margin-top: 3em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @media (min-width: 960px) {
+      flex-direction: row;
+      text-align: left;
+      margin: 0;
+    }
+
+  }
+
+
+  svg {
+
+    display: block;
+    font-size: 4em;
+    margin: 0 0 .4em 0;
+
+    @media (min-width: 960px) {
+      font-size: 3.4em;
+      margin: 0 .4em 0 0;
+    }
+
+  }
+
+  h3 {
+    font-size: 1.7em;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: .4em;
+  }
+
+}
+
+.learn {
+
+  ul {
+    font-size: 1.5em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+
+    margin: 0 0 1em 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
+.orer {
+  text-align: center;
 }

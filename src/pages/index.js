@@ -1,5 +1,6 @@
 import { useReducer } from 'react';
 import Head from 'next/head'
+import { FaBook, FaLaptopCode } from 'react-icons/fa';
 
 import styles from '../styles/Home.module.scss'
 
@@ -9,6 +10,7 @@ import Hero from '../components/Hero';
 import Container from '../components/Container';
 import Book from '../components/Book';
 import Footer from '../components/Footer';
+import Button from '../components/Button';
 import BuyWithStripe from '../components/BuyWithStripe';
 
 import { initCheckout, formatPrice } from '../lib/payments';
@@ -88,22 +90,82 @@ export default function Home() {
           </Container>
         </Section>
 
-        <Section backgroundColor="blue-dark">
+        <Section className={styles.highlights} backgroundColor="blue">
+          <Container>
+            <ul>
+              <li>
+                <div>
+                  <FaBook />
+                </div>
+                <div>
+                  <h3>50+ pages of JAM</h3>
+                  <p>
+                    All you need to know about the Jamstack
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <FaLaptopCode />
+                </div>
+                <div>
+                  <h3>3 Packed Tutorials</h3>
+                  <p>
+                    Learn by doing by building different 3 apps
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </Container>
+        </Section>
+
+        <Section className={styles.learn} backgroundColor="blue-dark">
           <Container>
 
-            <p>
-              Building fast, dynamic apps with Javascript and the static web
-            </p>
+            <h2>What you'll learn...</h2>
 
-            <p>
-              Learn everything you need to know about the Jamstack including
-              3 tutorials to learn by doing for only { cost }
-            </p>
+            <ul>
+              <li>
+                What is the Jamstack?
+              </li>
 
-            <p>
-              Want to bulk order? Reach out at hello@colbyfayock.com
-            </p>
+              <li>
+                What makes the Jamstack so awesome?
+              </li>
 
+              <li>
+                What isn't the Jamstack great at?
+              </li>
+
+              <li>
+                What makes the Jamstack so fast?
+              </li>
+
+              <li>
+                How can you build your own Jamstack app?
+              </li>
+            </ul>
+
+          </Container>
+        </Section>
+
+        <Section className={styles.order} backgroundColor="gray-light">
+          <Container>
+            <h2>Pre-Order yours today!</h2>
+            <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
+              Pre-Order for {cost}
+            </BuyWithStripe>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container>
+            <h2>Not ready to pre-order? Sign up for updates!</h2>
+            <form className={styles.form} action="https://app.convertkit.com/forms/1646524/subscriptions" method="post">
+              <label className={styles.sronly} htmlFor="email">Email Address</label>
+              <input type="email" name="email_address" placeholder="Email Address" required />
+              <Button>Sign Up</Button>
+            </form>
           </Container>
         </Section>
 
