@@ -119,6 +119,16 @@ export default function Home() {
           </Container>
         </Section>
 
+        <Section className={styles.special} backgroundColor="purple">
+          <Container>
+            <h2>Pre-Order Special</h2>
+            <p>
+              All orders before launch date get a free sticker pack including
+              2 Jamstack stickers and <a href="https://twitter.com/colbyfayock/status/1294363413301338117">Cosmo the Space Jellyfish</a>!
+            </p>
+          </Container>
+        </Section>
+
         <Section className={styles.highlights} backgroundColor="blue">
           <Container>
             <ul>

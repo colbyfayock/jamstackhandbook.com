@@ -7,7 +7,8 @@
   }
 
   &[data-background-color="blue"],
-  &[data-background-color="blue-dark"] {
+  &[data-background-color="blue-dark"],
+  &[data-background-color="purple"] {
 
     h1,
     h2,
@@ -31,6 +32,11 @@
 
   &[data-background-color="gray-light"] {
     background-color: var(--color-gray-light);
+  }
+
+  &[data-background-color="purple"] {
+    color: white;
+    background-color: var(--color-purple);
   }
 
   h1,
