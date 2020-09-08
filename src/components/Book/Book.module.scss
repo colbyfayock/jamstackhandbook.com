@@ -15,7 +15,7 @@ $book-thickness: 0.375em;
   height: $book-height;
   position: relative;
   transform-style: preserve-3d;
-  transition: 1s ease;
+  transition: transform 1s ease;
 
   @media (min-width: 960px) {
     transform: rotateY(-23deg);
