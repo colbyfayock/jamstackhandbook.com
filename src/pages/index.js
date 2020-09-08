@@ -18,6 +18,14 @@ import { initCheckout, formatPrice } from '../lib/payments';
 const PRODUCT_PRICE = process.env.NEXT_PUBLIC_BASE_PRICE;
 const PRODUCT_CURRENCY = process.env.NEXT_PUBLIC_CURRENCY;
 
+import imageOgJamstackHandbook from '../images/jamstack-handbook-social.jpg';
+
+const TITLE = 'Jamstack Handbook';
+const TAGLINE = 'Building fast, dynamic apps with Javascript and the static web';
+const DESCRIPTION = 'Building fast, dynamic apps with Javascript and the static web';
+const URL = 'https://jamstackhandbook.com';
+const ogImage = `${URL}${imageOgJamstackHandbook}`;
+
 export default function Home() {
 
   const [state, dispatch] = useReducer(reducer, {
@@ -57,6 +65,27 @@ export default function Home() {
       <Head>
         <title>Jamstack Handbook</title>
         <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Head>
+        <title>{ TITLE }</title>
+        <meta name="description" content={DESCRIPTION} />
+
+        <meta property="og:url" content={URL} />
+        <meta property="og:type" content="book" />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESCRIPTION} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="2024" />
+        <meta property="og:image:height" content="1012" />
+        <meta property="og:image:alt" content={`${TITLE} - ${TAGLINE}`} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:image" content={ogImage} />
+        <meta property="twitter:site" content="@colbyfayock" />
+        <meta property="twitter:creator" content="@colbyfayock" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/images/favicon-512x512.png" />
       </Head>
 
       <Main>
