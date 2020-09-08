@@ -126,6 +126,9 @@ export default function Home() {
               All orders before launch date get a free sticker pack including
               2 Jamstack stickers and <a href="https://twitter.com/colbyfayock/status/1294363413301338117">Cosmo the Space Jellyfish</a>!
             </p>
+            <p>
+              Note: shipping may be limited or delayed depending on country restrictions
+            </p>
           </Container>
         </Section>
 
