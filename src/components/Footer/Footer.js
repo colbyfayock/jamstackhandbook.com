@@ -39,7 +39,7 @@ https://jamstackhandbook.com/`
       </Section>
       <Section backgroundColor="purple">
         <Container>
-          <h3>What to bulk order or have other questions?</h3>
+          <h3>Want to bulk order or have other questions?</h3>
           <p>
             Contact me at hello@colbyfayock.com
           </p>
