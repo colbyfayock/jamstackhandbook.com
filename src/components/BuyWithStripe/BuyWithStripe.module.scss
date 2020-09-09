@@ -1,0 +1,21 @@
+.button {
+
+  display: inline-flex;
+  align-items: center;
+
+  &:after {
+    content: '';
+    margin-right: -.4em;
+  }
+
+  svg {
+    color: white;
+    width: auto;
+    height: 1.2em;
+    padding-right: .8em;
+    border-right: solid 1px rgba(255, 255, 255, .4);
+    margin-right: .8em;
+    margin-left: -.4em;
+  }
+
+}

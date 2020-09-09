@@ -1,6 +1,22 @@
 .footer {
 
-  padding: 1.4rem 1rem;
+  [data-background-color="blue"],
+  [data-background-color="purple"] {
+    padding: 2.5rem 1rem;
+  }
+
+  [data-background-color="blue"] {
+
+    button {
+      background-color: var(--color-blue-dark);
+    }
+
+  }
+
+  h3,
+  p {
+    color: white;
+  }
 
   a {
     text-decoration: underline;

@@ -1,0 +1,14 @@
+.hero {
+
+  background-color: var(--color-gray-light);
+  padding-bottom: 1rem;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+}

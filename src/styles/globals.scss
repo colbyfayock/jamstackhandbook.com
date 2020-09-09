@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
 :root {
   --color-blue-medium: #0A64EC;
   --color-blue-dark: #100E4F;
   --color-purple: #9162BB;
   --color-purple-light: #AD6EE7;
-  --color-gray-light: #E0DFFF;
+  --color-gray-light: #EDF1FA;
   --color-gray-medium: #909090;
   --border-radius-small: 3px;
 }
@@ -12,8 +14,19 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+}
+
+body,
+#__next,
+#__next > div {
+  min-height: 100vh;
+}
+
+#__next > div {
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
 a {
@@ -25,16 +38,12 @@ a {
   box-sizing: border-box;
 }
 
+h2 {
 
-button {
-  color: white;
-  height: 2.1155em;
-  font-family: inherit;
-  font-size: 1.3em;
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 2em;
-  background-color: var(--color-blue-medium);
-  border-radius: var(--border-radius-small);
-  border: 0;
+  font-size: 2em;
+
+  @media (min-width: 960px) {
+    font-size: 2.8em;
+  }
+
 }
