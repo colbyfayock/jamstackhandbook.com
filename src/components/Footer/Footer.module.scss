@@ -1,7 +1,17 @@
 .footer {
 
-  background-color: var(--color-purple);
-  padding: 1.4rem 1rem;
+  [data-background-color="blue"],
+  [data-background-color="purple"] {
+    padding: 2rem 1rem;
+  }
+
+  [data-background-color="blue"] {
+
+    button {
+      background-color: var(--color-blue-dark);
+    }
+
+  }
 
   h3,
   p {
