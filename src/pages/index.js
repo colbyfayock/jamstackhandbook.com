@@ -151,7 +151,7 @@ export default function Home() {
                   <FaLaptopCode />
                 </div>
                 <div>
-                  <h3>3 Packed Tutorials</h3>
+                  <h3>3 JAM-Packed Tutorials</h3>
                   <p>
                     Learn by doing by building different 3 apps
                   </p>
