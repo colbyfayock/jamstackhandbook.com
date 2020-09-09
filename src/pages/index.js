@@ -19,6 +19,7 @@ const PRODUCT_PRICE = process.env.NEXT_PUBLIC_BASE_PRICE;
 const PRODUCT_CURRENCY = process.env.NEXT_PUBLIC_CURRENCY;
 
 import imageOgJamstackHandbook from '../images/jamstack-handbook-social.jpg';
+import imageColbyFayock from '../images/colby-fayock-400x400.jpg';
 
 const TITLE = 'Jamstack Handbook';
 const TAGLINE = 'Building fast, dynamic apps with Javascript and the static web';
@@ -90,6 +91,18 @@ export default function Home() {
 
       <Main>
 
+        <Section className={styles.special} backgroundColor="purple">
+          <Container>
+            <p>
+              <strong>Pre-Order Special:</strong> FREE sticker pack with 2 Jamstack stickers
+              and <a href="https://twitter.com/colbyfayock/status/1294363413301338117" target="_blank" rel="noreferrer">Cosmo the Space Jellyfish</a>!
+            </p>
+            <p className={styles.specialNote}>
+              Limited quantities. Shipping may be limited or delayed depending on country restrictions.
+            </p>
+          </Container>
+        </Section>
+
         <Section backgroundColor="gray-light">
           <Container>
             <Hero>
@@ -116,19 +129,6 @@ export default function Home() {
               </div>
 
             </Hero>
-          </Container>
-        </Section>
-
-        <Section className={styles.special} backgroundColor="purple">
-          <Container>
-            <h2>Pre-Order Special</h2>
-            <p>
-              All orders before launch date get a free sticker pack including
-              2 Jamstack stickers and <a href="https://twitter.com/colbyfayock/status/1294363413301338117">Cosmo the Space Jellyfish</a>!
-            </p>
-            <p>
-              Note: shipping may be limited or delayed depending on country restrictions
-            </p>
           </Container>
         </Section>
 
@@ -168,25 +168,42 @@ export default function Home() {
 
             <ul>
               <li>
-                What is the Jamstack?
+                🤔 What is the Jamstack?
               </li>
 
               <li>
-                What makes the Jamstack so awesome?
+                💪 What makes the Jamstack so awesome?
               </li>
 
               <li>
-                What isn't the Jamstack great at?
+                😢 What isn't the Jamstack great at?
               </li>
 
               <li>
-                What makes the Jamstack so fast?
+                ⚡️ What makes the Jamstack so fast?
               </li>
 
               <li>
-                How can you build your own Jamstack app?
+                🛠 How can you build your own Jamstack app?
               </li>
             </ul>
+
+          </Container>
+        </Section>
+
+        <Section className={styles.author} backgroundColor="purple">
+          <Container>
+
+            <div>
+              <img width="400" height="400" src={imageColbyFayock} alt="Colby Fayock" />
+            </div>
+
+            <div>
+              <h2>From <a href="https://twitter.com/colbyfayock">Colby Fayock</a></h2>
+              <p>
+                The author of <a href="http://50reactprojects.com/" target="_blank" rel="noreferrer">50 Projects for React & the Static Web</a>
+              </p>
+            </div>
 
           </Container>
         </Section>
