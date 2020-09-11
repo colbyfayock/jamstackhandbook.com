@@ -47,6 +47,12 @@ export default function Success() {
             </h1>
 
             <p>
+              You should receive message within a few minutes to the email you
+              provided during checkout. If you don't see it, please check your
+              Spam folder or Promotions tab.
+            </p>
+
+            <p>
               Questions or issues? Reach out at hello@colbyfayock.com
             </p>
 

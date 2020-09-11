@@ -117,6 +117,10 @@ export default function Home() {
                     Get started on the Jamstack with this <strong>deep dive</strong> including <strong>3 tutorials</strong>.
                   </p>
 
+                  <p>
+                    <strong>Release Date:</strong> Wed September 16th!
+                  </p>
+
                   <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
                     Pre-Order for {cost}
                   </BuyWithStripe>
