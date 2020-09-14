@@ -20,6 +20,9 @@ const PRODUCT_CURRENCY = process.env.NEXT_PUBLIC_CURRENCY;
 
 import imageOgJamstackHandbook from '../images/jamstack-handbook-social.jpg';
 import imageColbyFayock from '../images/colby-fayock-400x400.jpg';
+import imageTableOfContents1 from '../images/jamstack-handbook-table-of-contents-1.jpg';
+import imageTableOfContents2 from '../images/jamstack-handbook-table-of-contents-2.jpg';
+import imageTableOfContents3 from '../images/jamstack-handbook-table-of-contents-3.jpg';
 
 const TITLE = 'Jamstack Handbook';
 const TAGLINE = 'Building fast, dynamic apps with Javascript and the static web';
@@ -144,7 +147,7 @@ export default function Home() {
                   <FaBook />
                 </div>
                 <div>
-                  <h3>50+ pages of JAM</h3>
+                  <h3>100 pages of JAM</h3>
                   <p>
                     All you need to know about the Jamstack
                   </p>
@@ -192,6 +195,25 @@ export default function Home() {
               </li>
             </ul>
 
+          </Container>
+        </Section>
+
+        <Section className={styles.tableOfContents}>
+          <Container className={styles.tableOfContentsContainer}>
+            <a href={imageTableOfContents1} target="_blank">
+              <img src={imageTableOfContents1} alt="Table of Contents 1/3" />
+            </a>
+            <a href={imageTableOfContents2} target="_blank">
+              <img src={imageTableOfContents2} alt="Table of Contents 2/3" />
+            </a>
+            <a href={imageTableOfContents3} target="_blank">
+              <img src={imageTableOfContents3} alt="Table of Contents 3/3" />
+            </a>
+          </Container>
+          <Container>
+            <p className={styles.tableOfContentsNote}>
+              Click on an image to open it in a new tab.
+            </p>
           </Container>
         </Section>
 
