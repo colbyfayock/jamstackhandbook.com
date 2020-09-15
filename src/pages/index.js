@@ -1,6 +1,8 @@
 import { useReducer } from 'react';
 import Head from 'next/head'
 import { FaBook, FaLaptopCode } from 'react-icons/fa';
+import { TwitterTweetEmbed } from 'react-twitter-embed';
+
 
 import styles from '../styles/Home.module.scss'
 
@@ -30,7 +32,14 @@ const DESCRIPTION = 'Building fast, dynamic apps with Javascript and the static 
 const URL = 'https://jamstackhandbook.com';
 const ogImage = `${URL}${imageOgJamstackHandbook}`;
 
-export default function Home() {
+const TWEETS = [
+  '1303782679251427331',
+  '1303782679251427331',
+  '1303782679251427331',
+  '1303782679251427331',
+]
+
+export default function Home({ tweets }) {
 
   const [state, dispatch] = useReducer(reducer, {
     loading: false,
@@ -165,6 +174,24 @@ export default function Home() {
                 </div>
               </li>
             </ul>
+          </Container>
+        </Section>
+
+        <Section className={styles.tweets}>
+          <Container>
+
+          <ul>
+            {TWEETS.map(id => {
+              return (
+                <li key={id}>
+                  <TwitterTweetEmbed tweetId={id} />
+                </li>
+              )
+            })}
+          </ul>
+
+
+
           </Container>
         </Section>
 

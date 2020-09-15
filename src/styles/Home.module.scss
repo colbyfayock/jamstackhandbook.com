@@ -387,3 +387,49 @@
   text-align: center;
   margin-top: 3em!important;
 }
+
+
+
+
+
+
+.tweets {
+
+  width: 100vw;
+  overflow-x: scroll;
+
+  ul {
+
+    list-style: none;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0 -1em;
+
+    @media (min-width: 960px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+  }
+
+  li {
+
+    display: inline-block;
+    width: 75%;
+    padding: 1em;
+
+    @media (min-width: 660px) {
+      width: 50%;
+    }
+
+    @media (min-width: 960px) {
+      width: 33.33%;
+    }
+
+    @media (min-width: 1400px) {
+      width: 25%;
+    }
+
+  }
+
+}
