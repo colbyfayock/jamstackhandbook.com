@@ -199,6 +199,11 @@ export default function Home() {
         </Section>
 
         <Section className={styles.tableOfContents}>
+          <Container>
+            <h2 className={styles.tableOfContentsHeadline}>
+              What to expect in Jamstack Handbook
+            </h2>
+          </Container>
           <Container className={styles.tableOfContentsContainer}>
             <a href={imageTableOfContents1} target="_blank">
               <img src={imageTableOfContents1} alt="Table of Contents 1/3" />
