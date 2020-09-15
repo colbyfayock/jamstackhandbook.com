@@ -78,6 +78,7 @@ export default function Home({ tweets }) {
       <Head>
         <title>Jamstack Handbook</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://platform.twitter.com/" />
       </Head>
 
       <Head>
@@ -179,6 +180,8 @@ export default function Home({ tweets }) {
 
         <Section className={styles.tweets}>
           <Container>
+
+            <h2>What people are saying</h2>
 
           <ul>
             {TWEETS.map(id => {
