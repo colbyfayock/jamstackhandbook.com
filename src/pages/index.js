@@ -149,18 +149,6 @@ export default function Home({ tweets }) {
 
       <Main>
 
-        <Section className={styles.special} backgroundColor="purple">
-          <Container>
-            <p>
-              <strong>Pre-Order Special:</strong> FREE sticker pack with 2 Jamstack stickers
-              and <a href="https://twitter.com/colbyfayock/status/1294363413301338117" target="_blank" rel="noreferrer">Cosmo the Space Jellyfish</a>!
-            </p>
-            <p className={styles.specialNote}>
-              Limited quantities. Shipping may be limited or delayed depending on country restrictions.
-            </p>
-          </Container>
-        </Section>
-
         <Section backgroundColor="gray-light">
           <Container>
             <Hero>
@@ -175,12 +163,8 @@ export default function Home({ tweets }) {
                     Get started on the Jamstack with this <strong>deep dive</strong> including <strong>3 tutorials</strong>.
                   </p>
 
-                  <p>
-                    <strong>Release Date:</strong> Wed September 16th!
-                  </p>
-
                   <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
-                    Pre-Order for {cost}
+                    Order for {cost}
                   </BuyWithStripe>
                 </div>
 
@@ -223,7 +207,7 @@ export default function Home({ tweets }) {
           </Container>
         </Section>
 
-        <Section>
+        {/* <Section>
           <Container>
             <h2>What people are saying</h2>
           </Container>
@@ -255,7 +239,7 @@ export default function Home({ tweets }) {
             </ul>
 
           </Container>
-        </Section>
+        </Section> */}
 
         <Section className={styles.learn} backgroundColor="blue-dark">
           <Container>
@@ -287,6 +271,23 @@ export default function Home({ tweets }) {
           </Container>
         </Section>
 
+        <Section className={styles.author} backgroundColor="purple">
+          <Container>
+
+            <div>
+              <img loading="lazy" width="400" height="400" src={imageColbyFayock} alt="Colby Fayock" />
+            </div>
+
+            <div>
+              <h2>From <a href="https://twitter.com/colbyfayock">Colby Fayock</a></h2>
+              <p>
+                The author of <a href="http://50reactprojects.com/" target="_blank" rel="noreferrer">50 Projects for React & the Static Web</a>
+              </p>
+            </div>
+
+          </Container>
+        </Section>
+
         <Section className={styles.tableOfContents}>
           <Container>
             <h2 className={styles.tableOfContentsHeadline}>
@@ -311,40 +312,12 @@ export default function Home({ tweets }) {
           </Container>
         </Section>
 
-        <Section className={styles.author} backgroundColor="purple">
-          <Container>
-
-            <div>
-              <img loading="lazy" width="400" height="400" src={imageColbyFayock} alt="Colby Fayock" />
-            </div>
-
-            <div>
-              <h2>From <a href="https://twitter.com/colbyfayock">Colby Fayock</a></h2>
-              <p>
-                The author of <a href="http://50reactprojects.com/" target="_blank" rel="noreferrer">50 Projects for React & the Static Web</a>
-              </p>
-            </div>
-
-          </Container>
-        </Section>
-
         <Section className={styles.order} backgroundColor="gray-light">
           <Container>
-            <h2>Pre-Order yours today!</h2>
+            <h2>Order yours today!</h2>
             <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
-              Pre-Order for {cost}
+              Order for {cost}
             </BuyWithStripe>
-          </Container>
-        </Section>
-
-        <Section className={styles.updates}>
-          <Container>
-            <h2>Not ready to pre-order? Sign up for updates!</h2>
-            <form className={styles.form} action="https://app.convertkit.com/forms/1646524/subscriptions" method="post">
-              <label className={styles.sronly} htmlFor="email">Email Address</label>
-              <input id="email" type="email" name="email_address" placeholder="Email Address" required />
-              <Button>Sign Up</Button>
-            </form>
           </Container>
         </Section>
 

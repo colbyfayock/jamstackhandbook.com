@@ -334,10 +334,6 @@
 
 }
 
-.tagline {
-  margin-bottom: 0 !important;
-}
-
 .tableOfContents {
 
   padding: 4rem 0 !important;
@@ -351,7 +347,10 @@
     display: block;
     width: 100%;
     min-width: 0;
-    margin-bottom: 1em;
+    padding: 1em;
+    border: solid 1px #ccc;
+    border-radius: .5em;
+    margin: 0 1em 1em 1em;
 
     @media (min-width: 960px) {
       margin-bottom: 0;
