@@ -1,8 +1,6 @@
 import { useReducer } from 'react';
 import Head from 'next/head'
-import { FaBook, FaLaptopCode } from 'react-icons/fa';
-import { TwitterTweetEmbed } from 'react-twitter-embed';
-
+import { FaBook, FaLaptopCode, FaTwitter } from 'react-icons/fa';
 
 import styles from '../styles/Home.module.scss'
 
@@ -32,11 +30,59 @@ const DESCRIPTION = 'Building fast, dynamic apps with Javascript and the static 
 const URL = 'https://jamstackhandbook.com';
 const ogImage = `${URL}${imageOgJamstackHandbook}`;
 
-const TWEETS = [
-  '1303782679251427331',
-  '1303782679251427331',
-  '1303782679251427331',
-  '1303782679251427331',
+const FEATURED_TWEETS = [
+  {
+    id: '1303782679251427331',
+    authorName: 'Colby Fayock',
+    authorId: 'colbyfayock',
+    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
+    content: [
+      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
+      'Jamstack Handbook',
+      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
+      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
+      'https://jamstackhandbook.com',
+    ]
+  },
+  {
+    id: '1303782679251427331',
+    authorName: 'Colby Fayock',
+    authorId: 'colbyfayock',
+    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
+    content: [
+      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
+      'Jamstack Handbook',
+      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
+      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
+      'https://jamstackhandbook.com',
+    ]
+  },
+  {
+    id: '1303782679251427331',
+    authorName: 'Colby Fayock',
+    authorId: 'colbyfayock',
+    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
+    content: [
+      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
+      'Jamstack Handbook',
+      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
+      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
+      'https://jamstackhandbook.com',
+    ]
+  },
+  {
+    id: '1303782679251427331',
+    authorName: 'Colby Fayock',
+    authorId: 'colbyfayock',
+    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
+    content: [
+      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
+      'Jamstack Handbook',
+      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
+      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
+      'https://jamstackhandbook.com',
+    ]
+  },
 ]
 
 export default function Home({ tweets }) {
@@ -183,17 +229,31 @@ export default function Home({ tweets }) {
 
             <h2>What people are saying</h2>
 
-          <ul>
-            {TWEETS.map(id => {
-              return (
-                <li key={id}>
-                  <TwitterTweetEmbed tweetId={id} />
-                </li>
-              )
-            })}
-          </ul>
-
-
+            <ul>
+              {FEATURED_TWEETS.map(tweet => {
+                const { id, authorName, authorId, authorImage, content } = tweet;
+                return (
+                  <li key={id}>
+                    <a className={styles.tweet} href={`https://twitter.com/${authorId}/status/${id}`}>
+                      <FaTwitter className={styles.tweetIcon} />
+                      <p className={styles.tweetHeader}>
+                        <img width="200" height="200" src={authorImage} alt={authorName} />
+                        <span className={styles.tweetName}>
+                          <strong>{ authorName }</strong>
+                          <span>@{ authorId }</span>
+                        </span>
+                      </p>
+                      <div className={styles.tweetContent}>
+                        {content.map((content, i) => <p key={i}>{content}</p>)}
+                      </div>
+                      <p className={styles.tweetFooter}>
+                        <span>View Tweet</span>
+                      </p>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
 
           </Container>
         </Section>

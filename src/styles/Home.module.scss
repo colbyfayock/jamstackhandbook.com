@@ -395,11 +395,10 @@
 
 .tweets {
 
-  width: 100vw;
-  overflow-x: scroll;
-
   ul {
 
+    width: 100vw;
+    overflow-x: scroll;
     list-style: none;
     white-space: nowrap;
     padding: 0;
@@ -415,7 +414,7 @@
   li {
 
     display: inline-block;
-    width: 75%;
+    width: 85%;
     padding: 1em;
 
     @media (min-width: 660px) {
@@ -430,6 +429,92 @@
       width: 25%;
     }
 
+  }
+
+}
+
+
+.tweet {
+
+  display: block;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 1em;
+  border: solid 1px #ccc;
+  border-radius: .8em;
+
+  p {
+    color: inherit;
+    white-space: normal;
+    text-align: left;
+  }
+
+}
+
+.tweetIcon {
+  position: absolute;
+  top: .6em;
+  right: .6em;
+  font-size: 1.2em;
+  color: rgb(29, 161, 242);
+}
+
+.tweetHeader {
+
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+
+  img {
+    width: 2.6em;
+    height: 2.6em;
+    border-radius: 100%;
+    margin-right: .5em;
+  }
+
+}
+
+.tweetName {
+
+  display: flex;
+  flex-direction: column;
+  font-size: .9em;
+
+  span {
+    color: #777;
+  }
+
+}
+
+.tweetContent {
+
+  font-size: 1.1em;
+
+  p {
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
+.tweetFooter {
+
+  padding-top: 1em;
+  border-top: solid 1px #ccc;
+  margin-top: 1.2em;
+
+  span {
+    color: #777;
+    font-size: .9em;
   }
 
 }
