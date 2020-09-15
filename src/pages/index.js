@@ -342,7 +342,7 @@ export default function Home({ tweets }) {
             <h2>Not ready to pre-order? Sign up for updates!</h2>
             <form className={styles.form} action="https://app.convertkit.com/forms/1646524/subscriptions" method="post">
               <label className={styles.sronly} htmlFor="email">Email Address</label>
-              <input type="email" name="email_address" placeholder="Email Address" required />
+              <input id="email" type="email" name="email_address" placeholder="Email Address" required />
               <Button>Sign Up</Button>
             </form>
           </Container>
