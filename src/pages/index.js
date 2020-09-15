@@ -236,13 +236,13 @@ export default function Home({ tweets }) {
           </Container>
           <Container className={styles.tableOfContentsContainer}>
             <a href={imageTableOfContents1} target="_blank">
-              <img src={imageTableOfContents1} alt="Table of Contents 1/3" />
+              <img loading="lazy" src={imageTableOfContents1} alt="Table of Contents 1/3" />
             </a>
             <a href={imageTableOfContents2} target="_blank">
-              <img src={imageTableOfContents2} alt="Table of Contents 2/3" />
+              <img loading="lazy" src={imageTableOfContents2} alt="Table of Contents 2/3" />
             </a>
             <a href={imageTableOfContents3} target="_blank">
-              <img src={imageTableOfContents3} alt="Table of Contents 3/3" />
+              <img loading="lazy" src={imageTableOfContents3} alt="Table of Contents 3/3" />
             </a>
           </Container>
           <Container>
@@ -256,7 +256,7 @@ export default function Home({ tweets }) {
           <Container>
 
             <div>
-              <img width="400" height="400" src={imageColbyFayock} alt="Colby Fayock" />
+              <img loading="lazy" width="400" height="400" src={imageColbyFayock} alt="Colby Fayock" />
             </div>
 
             <div>
