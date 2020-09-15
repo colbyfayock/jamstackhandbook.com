@@ -224,11 +224,11 @@ export default function Home({ tweets }) {
           </Container>
         </Section>
 
-        <Section className={styles.tweets}>
+        <Section>
           <Container>
-
             <h2>What people are saying</h2>
-
+          </Container>
+          <Container className={styles.tweets}>
             <ul>
               {FEATURED_TWEETS.map(tweet => {
                 const { id, authorName, authorId, authorImage, content } = tweet;
