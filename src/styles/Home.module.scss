@@ -334,10 +334,6 @@
 
 }
 
-.tagline {
-  margin-bottom: 0 !important;
-}
-
 .tableOfContents {
 
   padding: 4rem 0 !important;
@@ -351,7 +347,10 @@
     display: block;
     width: 100%;
     min-width: 0;
-    margin-bottom: 1em;
+    padding: 1em;
+    border: solid 1px #ccc;
+    border-radius: .5em;
+    margin: 0 1em 1em 1em;
 
     @media (min-width: 960px) {
       margin-bottom: 0;
@@ -386,4 +385,137 @@
 .tableOfContentsNote {
   text-align: center;
   margin-top: 3em!important;
+}
+
+
+
+
+
+
+.tweets {
+
+  width: 100vw;
+  overflow-x: scroll;
+  margin-top: 2em!important;
+
+  ul {
+
+    list-style: none;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0 -1em;
+
+    @media (min-width: 960px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+  }
+
+  li {
+
+    display: inline-block;
+    width: 85%;
+    padding: 1em;
+
+    @media (min-width: 660px) {
+      width: 60%;
+    }
+
+    @media (min-width: 960px) {
+      width: 33.33%;
+    }
+
+    @media (min-width: 1400px) {
+      width: 25%;
+    }
+
+  }
+
+}
+
+
+.tweet {
+
+  display: block;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 1em;
+  border: solid 1px #ccc;
+  border-radius: .8em;
+
+  p {
+    color: inherit;
+    white-space: normal;
+    text-align: left;
+  }
+
+}
+
+.tweetIcon {
+  position: absolute;
+  top: .6em;
+  right: .6em;
+  font-size: 1.2em;
+  color: rgb(29, 161, 242);
+}
+
+.tweetHeader {
+
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+
+  img {
+    width: 2.6em;
+    height: 2.6em;
+    border-radius: 100%;
+    margin-right: .5em;
+  }
+
+}
+
+.tweetName {
+
+  display: flex;
+  flex-direction: column;
+  font-size: .9em;
+
+  span {
+    color: #777;
+  }
+
+}
+
+.tweetContent {
+
+  font-size: 1.1em;
+
+  p {
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
+.tweetFooter {
+
+  padding-top: 1em;
+  border-top: solid 1px #ccc;
+  margin-top: 1.2em;
+
+  span {
+    color: #777;
+    font-size: .9em;
+  }
+
 }

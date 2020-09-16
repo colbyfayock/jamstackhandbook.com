@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import Head from 'next/head'
-import { FaBook, FaLaptopCode } from 'react-icons/fa';
+import { FaBook, FaLaptopCode, FaTwitter } from 'react-icons/fa';
 
 import styles from '../styles/Home.module.scss'
 
@@ -30,7 +30,62 @@ const DESCRIPTION = 'Building fast, dynamic apps with Javascript and the static 
 const URL = 'https://jamstackhandbook.com';
 const ogImage = `${URL}${imageOgJamstackHandbook}`;
 
-export default function Home() {
+const FEATURED_TWEETS = [
+  {
+    id: '1303782679251427331',
+    authorName: 'Colby Fayock',
+    authorId: 'colbyfayock',
+    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
+    content: [
+      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
+      'Jamstack Handbook',
+      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
+      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
+      'https://jamstackhandbook.com',
+    ]
+  },
+  {
+    id: '1303782679251427331',
+    authorName: 'Colby Fayock',
+    authorId: 'colbyfayock',
+    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
+    content: [
+      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
+      'Jamstack Handbook',
+      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
+      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
+      'https://jamstackhandbook.com',
+    ]
+  },
+  {
+    id: '1303782679251427331',
+    authorName: 'Colby Fayock',
+    authorId: 'colbyfayock',
+    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
+    content: [
+      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
+      'Jamstack Handbook',
+      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
+      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
+      'https://jamstackhandbook.com',
+    ]
+  },
+  {
+    id: '1303782679251427331',
+    authorName: 'Colby Fayock',
+    authorId: 'colbyfayock',
+    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
+    content: [
+      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
+      'Jamstack Handbook',
+      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
+      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
+      'https://jamstackhandbook.com',
+    ]
+  },
+]
+
+export default function Home({ tweets }) {
 
   const [state, dispatch] = useReducer(reducer, {
     loading: false,
@@ -94,18 +149,6 @@ export default function Home() {
 
       <Main>
 
-        <Section className={styles.special} backgroundColor="purple">
-          <Container>
-            <p>
-              <strong>Pre-Order Special:</strong> FREE sticker pack with 2 Jamstack stickers
-              and <a href="https://twitter.com/colbyfayock/status/1294363413301338117" target="_blank" rel="noreferrer">Cosmo the Space Jellyfish</a>!
-            </p>
-            <p className={styles.specialNote}>
-              Limited quantities. Shipping may be limited or delayed depending on country restrictions.
-            </p>
-          </Container>
-        </Section>
-
         <Section backgroundColor="gray-light">
           <Container>
             <Hero>
@@ -120,13 +163,13 @@ export default function Home() {
                     Get started on the Jamstack with this <strong>deep dive</strong> including <strong>3 tutorials</strong>.
                   </p>
 
-                  <p>
-                    <strong>Release Date:</strong> Wed September 16th!
-                  </p>
-
                   <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
-                    Pre-Order for {cost}
+                    Order for {cost}
                   </BuyWithStripe>
+
+                  {/* <p>
+                    <a className={styles.producthunt} href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" style={{width: '250px', height: '54px'}} width="250" height="54" /></a>
+                  </p> */}
                 </div>
 
                 <div className={styles.heroBook}>
@@ -168,6 +211,40 @@ export default function Home() {
           </Container>
         </Section>
 
+        {/* <Section>
+          <Container>
+            <h2>What people are saying</h2>
+          </Container>
+          <Container className={styles.tweets}>
+            <ul>
+              {FEATURED_TWEETS.map(tweet => {
+                const { id, authorName, authorId, authorImage, content } = tweet;
+                return (
+                  <li key={id}>
+                    <a className={styles.tweet} href={`https://twitter.com/${authorId}/status/${id}`}>
+                      <FaTwitter className={styles.tweetIcon} />
+                      <p className={styles.tweetHeader}>
+                        <img width="200" height="200" src={authorImage} alt={authorName} />
+                        <span className={styles.tweetName}>
+                          <strong>{ authorName }</strong>
+                          <span>@{ authorId }</span>
+                        </span>
+                      </p>
+                      <div className={styles.tweetContent}>
+                        {content.map((content, i) => <p key={i}>{content}</p>)}
+                      </div>
+                      <p className={styles.tweetFooter}>
+                        <span>View Tweet</span>
+                      </p>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+
+          </Container>
+        </Section> */}
+
         <Section className={styles.learn} backgroundColor="blue-dark">
           <Container>
 
@@ -198,35 +275,11 @@ export default function Home() {
           </Container>
         </Section>
 
-        <Section className={styles.tableOfContents}>
-          <Container>
-            <h2 className={styles.tableOfContentsHeadline}>
-              What to expect in Jamstack Handbook
-            </h2>
-          </Container>
-          <Container className={styles.tableOfContentsContainer}>
-            <a href={imageTableOfContents1} target="_blank">
-              <img src={imageTableOfContents1} alt="Table of Contents 1/3" />
-            </a>
-            <a href={imageTableOfContents2} target="_blank">
-              <img src={imageTableOfContents2} alt="Table of Contents 2/3" />
-            </a>
-            <a href={imageTableOfContents3} target="_blank">
-              <img src={imageTableOfContents3} alt="Table of Contents 3/3" />
-            </a>
-          </Container>
-          <Container>
-            <p className={styles.tableOfContentsNote}>
-              Click on an image to open it in a new tab.
-            </p>
-          </Container>
-        </Section>
-
         <Section className={styles.author} backgroundColor="purple">
           <Container>
 
             <div>
-              <img width="400" height="400" src={imageColbyFayock} alt="Colby Fayock" />
+              <img loading="lazy" width="400" height="400" src={imageColbyFayock} alt="Colby Fayock" />
             </div>
 
             <div>
@@ -239,23 +292,36 @@ export default function Home() {
           </Container>
         </Section>
 
-        <Section className={styles.order} backgroundColor="gray-light">
+        <Section className={styles.tableOfContents}>
           <Container>
-            <h2>Pre-Order yours today!</h2>
-            <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
-              Pre-Order for {cost}
-            </BuyWithStripe>
+            <h2 className={styles.tableOfContentsHeadline}>
+              What to expect in Jamstack Handbook
+            </h2>
+          </Container>
+          <Container className={styles.tableOfContentsContainer}>
+            <a href={imageTableOfContents1} target="_blank">
+              <img loading="lazy" src={imageTableOfContents1} alt="Table of Contents 1/3" />
+            </a>
+            <a href={imageTableOfContents2} target="_blank">
+              <img loading="lazy" src={imageTableOfContents2} alt="Table of Contents 2/3" />
+            </a>
+            <a href={imageTableOfContents3} target="_blank">
+              <img loading="lazy" src={imageTableOfContents3} alt="Table of Contents 3/3" />
+            </a>
+          </Container>
+          <Container>
+            <p className={styles.tableOfContentsNote}>
+              Click on an image to open it in a new tab.
+            </p>
           </Container>
         </Section>
 
-        <Section className={styles.updates}>
+        <Section className={styles.order} backgroundColor="gray-light">
           <Container>
-            <h2>Not ready to pre-order? Sign up for updates!</h2>
-            <form className={styles.form} action="https://app.convertkit.com/forms/1646524/subscriptions" method="post">
-              <label className={styles.sronly} htmlFor="email">Email Address</label>
-              <input type="email" name="email_address" placeholder="Email Address" required />
-              <Button>Sign Up</Button>
-            </form>
+            <h2>Order yours today!</h2>
+            <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
+              Order for {cost}
+            </BuyWithStripe>
           </Container>
         </Section>
 

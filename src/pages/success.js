@@ -14,10 +14,10 @@ import Button from '../components/Button';
 export default function Success() {
   const twitterAction = createTweetAction({
     message: [
-      '💥 I just pre-ordered Jamstack Handbook from @colbyfayock\n',
-      '⚡️ It shows you how to build fast dynamic #webdev apps w/ #javascript and the static web\n',
-      '👉 Go grab your copy! Theres a preorder special with a FREE sticker pack\n',
-      '#jamstack101 #jamstackhandbook\n',
+      '🚀 I just ordered Jamstack Handbook from @colbyfayock\n',
+      '⚡️ It shows you how to build fast dynamic #webdev apps with #javascript and the #jamstack\n',
+      '👉 Go grab your copy now!\n',
+      '#jamstackhandbook\n',
       'https://jamstackhandbook.com',
     ]
   });
@@ -56,7 +56,7 @@ export default function Success() {
               Questions or issues? Reach out at hello@colbyfayock.com
             </p>
 
-            <h2>Let people know you just pre-ordered!</h2>
+            <h2>Let people know you just ordered!</h2>
 
             <Button onClick={handleOnTwitterClick}>Share on Twitter</Button>
 
