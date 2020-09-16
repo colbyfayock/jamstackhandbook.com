@@ -167,9 +167,9 @@ export default function Home({ tweets }) {
                     Order for {cost}
                   </BuyWithStripe>
 
-                  {/* <p>
+                  <p>
                     <a className={styles.producthunt} href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" style={{width: '250px', height: '54px'}} width="250" height="54" /></a>
-                  </p> */}
+                  </p>
                 </div>
 
                 <div className={styles.heroBook}>
