@@ -32,6 +32,15 @@ const ogImage = `${URL}${imageOgJamstackHandbook}`;
 
 const FEATURED_TWEETS = [
   {
+    id: '1306248642072805378',
+    authorName: 'Francois Lanthier Nadeau - CEO, Snipcart',
+    authorId: 'the_fln',
+    authorImage: 'https://pbs.twimg.com/profile_images/1211518028300587013/0UlXT7Iu_400x400.jpg',
+    content: [
+      'this is a comprehensive, useful, and accessible take on the Jamstack. Colby has been writing about Jamstack and building with it for a long while now. and his passion for the movement and technology shows.'
+    ]
+  },
+  {
     id: '1306228611654004737',
     authorName: 'Ruby on Wills 🐺',
     authorId: 'willjohnsonio',
@@ -41,7 +50,8 @@ const FEATURED_TWEETS = [
       'It\'s starts with a clear explanation of the Jamstack to get to more comfortable then go straight into building ',
       'If you want to learn all the buzz check this out ',
       'http://jamstackhandbook.com',
-    ]
+    ],
+    type: 'twitter'
   },
   {
     id: '1306265060839432195',
@@ -51,7 +61,8 @@ const FEATURED_TWEETS = [
     content: [
       'If you want to work with modern static sites, this is one of the most thorough resources on the JAMStack that I’ve seen.',
       '@colbyfayock wrote 50 React Projects, and now he goes into the what, why, and how of sites powered by Next, Gatsby, etc',
-    ]
+    ],
+    type: 'twitter'
   },
 
 ]
@@ -189,11 +200,13 @@ export default function Home({ tweets }) {
           <Container className={styles.tweets}>
             <ul>
               {FEATURED_TWEETS.map(tweet => {
-                const { id, authorName, authorId, authorImage, content } = tweet;
+                const { id, type, authorName, authorId, authorImage, content } = tweet;
                 return (
                   <li key={id}>
                     <a className={styles.tweet} href={`https://twitter.com/${authorId}/status/${id}`}>
-                      <FaTwitter className={styles.tweetIcon} />
+                      {type === 'twitter' && (
+                        <FaTwitter className={styles.tweetIcon} />
+                      )}
                       <p className={styles.tweetHeader}>
                         <img width="200" height="200" src={authorImage} alt={authorName} />
                         <span className={styles.tweetName}>
