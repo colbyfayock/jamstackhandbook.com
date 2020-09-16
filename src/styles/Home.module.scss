@@ -455,12 +455,22 @@
 
 }
 
-.tweetIcon {
+.tweetIcon,
+.producthuntIcon,
+.quoteIcon {
   position: absolute;
   top: .6em;
   right: .6em;
   font-size: 1.2em;
   color: rgb(29, 161, 242);
+}
+
+.producthuntIcon {
+  color: rgb(218, 85, 47);
+}
+
+.quoteIcon {
+  color: var(--color-purple);
 }
 
 .tweetHeader {

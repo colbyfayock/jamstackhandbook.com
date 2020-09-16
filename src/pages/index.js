@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import Head from 'next/head'
-import { FaBook, FaLaptopCode, FaTwitter } from 'react-icons/fa';
+import { FaBook, FaLaptopCode, FaTwitter, FaQuoteRight, FaProductHunt } from 'react-icons/fa';
 
 import styles from '../styles/Home.module.scss'
 
@@ -38,7 +38,9 @@ const FEATURED_TWEETS = [
     authorImage: 'https://pbs.twimg.com/profile_images/1211518028300587013/0UlXT7Iu_400x400.jpg',
     content: [
       'this is a comprehensive, useful, and accessible take on the Jamstack. Colby has been writing about Jamstack and building with it for a long while now. and his passion for the movement and technology shows.'
-    ]
+    ],
+    contentUrl: 'https://www.producthunt.com/posts/jamstack-handbook#comment-1142984',
+    type: 'producthunt'
   },
   {
     id: '1306228611654004737',
@@ -63,6 +65,16 @@ const FEATURED_TWEETS = [
       '@colbyfayock wrote 50 React Projects, and now he goes into the what, why, and how of sites powered by Next, Gatsby, etc',
     ],
     type: 'twitter'
+  },
+  {
+    id: '1228449356426219521',
+    authorName: 'James Quick',
+    authorId: 'jamesqquick',
+    authorImage: 'https://pbs.twimg.com/profile_images/1228449356426219521/jIN5Ci7H_400x400.jpg',
+    content: [
+      'Jamstack is the new hotness, but it\'s hard to find a clear definition of what exactly it is. Colby does an amazing job of breaking down the key components and benefits of the Jamstack with relevant examples. He also has some hands-on tutorials at the end to get you going. This book is 🔥 and more than worth it!',
+    ],
+    type: 'quote'
   },
 
 ]
@@ -200,12 +212,29 @@ export default function Home({ tweets }) {
           <Container className={styles.tweets}>
             <ul>
               {FEATURED_TWEETS.map(tweet => {
-                const { id, type, authorName, authorId, authorImage, content } = tweet;
+                const { id, type, authorName, authorId, authorImage, content, contentUrl } = tweet;
+                let url = `https://twitter.com/${authorId}`;
+
+                if ( type === 'twitter' ) {
+                  url = `${url}/status/${id}`;
+                }
+
+                if ( contentUrl ) {
+                  url = contentUrl;
+                }
+
+
                 return (
                   <li key={id}>
-                    <a className={styles.tweet} href={`https://twitter.com/${authorId}/status/${id}`}>
+                    <a className={styles.tweet} href={url}>
                       {type === 'twitter' && (
                         <FaTwitter className={styles.tweetIcon} />
+                      )}
+                      {type === 'producthunt' && (
+                        <FaProductHunt className={styles.producthuntIcon} />
+                      )}
+                      {type === 'quote' && (
+                        <FaQuoteRight className={styles.quoteIcon} />
                       )}
                       <p className={styles.tweetHeader}>
                         <img width="200" height="200" src={authorImage} alt={authorName} />
@@ -217,9 +246,16 @@ export default function Home({ tweets }) {
                       <div className={styles.tweetContent}>
                         {content.map((content, i) => <p key={i}>{content}</p>)}
                       </div>
-                      <p className={styles.tweetFooter}>
-                        <span>View Tweet</span>
-                      </p>
+                      {type === 'twitter' && (
+                        <p className={styles.tweetFooter}>
+                          <span>View Tweet</span>
+                        </p>
+                      )}
+                      {type === 'producthunt' && (
+                        <p className={styles.tweetFooter}>
+                          <span>View Comment</span>
+                        </p>
+                      )}
                     </a>
                   </li>
                 )
