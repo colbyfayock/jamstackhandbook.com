@@ -32,57 +32,18 @@ const ogImage = `${URL}${imageOgJamstackHandbook}`;
 
 const FEATURED_TWEETS = [
   {
-    id: '1303782679251427331',
-    authorName: 'Colby Fayock',
-    authorId: 'colbyfayock',
-    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
+    id: '1306228611654004737',
+    authorName: 'Ruby on Wills 🐺',
+    authorId: 'willjohnsonio',
+    authorImage: 'https://pbs.twimg.com/profile_images/1284516800504397824/_5C0cPnE_400x400.jpg',
     content: [
-      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
-      'Jamstack Handbook',
-      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
-      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
-      'https://jamstackhandbook.com',
+      'I read the preview copy of this and it\'s worth way more than $10!',
+      'It\'s starts with a clear explanation of the Jamstack to get to more comfortable then go straight into building ',
+      'If you want to learn all the buzz check this out ',
+      'http://jamstackhandbook.com',
     ]
   },
-  {
-    id: '1303782679251427331',
-    authorName: 'Colby Fayock',
-    authorId: 'colbyfayock',
-    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
-    content: [
-      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
-      'Jamstack Handbook',
-      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
-      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
-      'https://jamstackhandbook.com',
-    ]
-  },
-  {
-    id: '1303782679251427331',
-    authorName: 'Colby Fayock',
-    authorId: 'colbyfayock',
-    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
-    content: [
-      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
-      'Jamstack Handbook',
-      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
-      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
-      'https://jamstackhandbook.com',
-    ]
-  },
-  {
-    id: '1303782679251427331',
-    authorName: 'Colby Fayock',
-    authorId: 'colbyfayock',
-    authorImage: 'https://pbs.twimg.com/profile_images/1273434571313418241/GDP-V_nz_400x400.jpg',
-    content: [
-      '😎 It\'s official. I just launched preorder for my 2nd ebook!',
-      'Jamstack Handbook',
-      '📚 Learn everything you need to know about the #jamstack including 3 step by step tutorials',
-      '💥 Pre-Order Special: free stickers incl 2 Jamstack and Cosmo the Space Jellyfish',
-      'https://jamstackhandbook.com',
-    ]
-  },
+
 ]
 
 export default function Home({ tweets }) {
@@ -211,7 +172,7 @@ export default function Home({ tweets }) {
           </Container>
         </Section>
 
-        {/* <Section>
+        <Section>
           <Container>
             <h2>What people are saying</h2>
           </Container>
@@ -243,7 +204,7 @@ export default function Home({ tweets }) {
             </ul>
 
           </Container>
-        </Section> */}
+        </Section>
 
         <Section className={styles.learn} backgroundColor="blue-dark">
           <Container>
