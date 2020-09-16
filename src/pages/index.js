@@ -43,6 +43,16 @@ const FEATURED_TWEETS = [
       'http://jamstackhandbook.com',
     ]
   },
+  {
+    id: '1306265060839432195',
+    authorName: '🐴 Alex Trost',
+    authorId: 'trostcodes',
+    authorImage: 'https://pbs.twimg.com/profile_images/1268565453611438080/kURicp04_400x400.jpg',
+    content: [
+      'If you want to work with modern static sites, this is one of the most thorough resources on the JAMStack that I’ve seen.',
+      '@colbyfayock wrote 50 React Projects, and now he goes into the what, why, and how of sites powered by Next, Gatsby, etc',
+    ]
+  },
 
 ]
 
