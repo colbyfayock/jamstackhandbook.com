@@ -211,7 +211,7 @@ export default function Home({ tweets }) {
           </Container>
         </Section>
 
-        {/* <Section>
+        <Section>
           <Container>
             <h2>What people are saying</h2>
           </Container>
@@ -243,7 +243,7 @@ export default function Home({ tweets }) {
             </ul>
 
           </Container>
-        </Section> */}
+        </Section>
 
         <Section className={styles.learn} backgroundColor="blue-dark">
           <Container>
