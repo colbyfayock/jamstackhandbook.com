@@ -76,6 +76,16 @@ const FEATURED_TWEETS = [
     ],
     type: 'quote'
   },
+  {
+    id: '1306578953998606338',
+    authorName: 'Marquet Reid',
+    authorId: 'QuetCodesFire',
+    authorImage: 'https://pbs.twimg.com/profile_images/1195163512332541953/cmKyK8Hr_400x400.jpg',
+    content: [
+      'Jamstack Handbook explains WHAT jamstack is, WHO can benefit from using it, WHERE you can find resources, WHEN you can use it, WHY you should use it, and HOW you can get started with 3 guides to build 3 different projects. #jamstackhandbook',
+    ],
+    type: 'twitter'
+  },
 
 ]
 
