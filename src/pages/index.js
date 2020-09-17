@@ -86,11 +86,13 @@ export default function Home({ tweets }) {
     error: null,
   });
 
-  const cost = formatPrice({
-    amount: PRODUCT_PRICE,
-    currency: PRODUCT_CURRENCY,
-    quantity: 1
-  });
+  // const cost = formatPrice({
+  //   amount: PRODUCT_PRICE,
+  //   currency: PRODUCT_CURRENCY,
+  //   quantity: 1
+  // });
+
+  const cost = '$10.00';
 
   /**
    * handleOnPurchase

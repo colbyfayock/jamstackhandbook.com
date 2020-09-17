@@ -33,27 +33,27 @@ export async function initCheckout({ lineItems } = {}) {
 }
 
 
-export function formatPrice({ amount, currency, quantity }) {
-  const numberFormat = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency,
-    currencyDisplay: 'symbol',
-  });
+// export function formatPrice({ amount, currency, quantity }) {
+//   const numberFormat = new Intl.NumberFormat('en-US', {
+//     style: 'currency',
+//     currency,
+//     currencyDisplay: 'symbol',
+//   });
 
-  const parts = numberFormat.formatToParts(amount);
+//   const parts = numberFormat.formatToParts(amount);
 
-  let zeroDecimalCurrency = true;
+//   let zeroDecimalCurrency = true;
 
-  for (let part of parts) {
-    if (part.type === 'decimal') {
-      zeroDecimalCurrency = false;
-    }
-  }
+//   for (let part of parts) {
+//     if (part.type === 'decimal') {
+//       zeroDecimalCurrency = false;
+//     }
+//   }
 
-  amount = zeroDecimalCurrency ? amount : amount / 100;
+//   amount = zeroDecimalCurrency ? amount : amount / 100;
 
-  const total = (quantity * amount).toFixed(2);
+//   const total = (quantity * amount).toFixed(2);
 
-  return numberFormat.format(total);
-};
+//   return numberFormat.format(total);
+// };
 
