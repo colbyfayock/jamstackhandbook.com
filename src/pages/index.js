@@ -15,7 +15,7 @@ import BuyWithStripe from '../components/BuyWithStripe';
 
 import { initCheckout, formatPrice } from '../lib/payments';
 
-const PRODUCT_PRICE = process.env.NEXT_PUBLIC_BASE_PRICE;
+const PRODUCT_PRICE = '$10.00';
 const PRODUCT_CURRENCY = process.env.NEXT_PUBLIC_CURRENCY;
 
 import imageOgJamstackHandbook from '../images/jamstack-handbook-social.jpg';
@@ -80,19 +80,10 @@ const FEATURED_TWEETS = [
 ]
 
 export default function Home({ tweets }) {
-
   const [state, dispatch] = useReducer(reducer, {
     loading: false,
     error: null,
   });
-
-  // const cost = formatPrice({
-  //   amount: PRODUCT_PRICE,
-  //   currency: PRODUCT_CURRENCY,
-  //   quantity: 1
-  // });
-
-  const cost = '$10.00';
 
   /**
    * handleOnPurchase
@@ -160,12 +151,8 @@ export default function Home({ tweets }) {
                   </p>
 
                   <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
-                    Order for {cost}
+                    Order for {PRODUCT_PRICE}
                   </BuyWithStripe>
-
-                  <p>
-                    <a className={styles.producthunt} href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" style={{width: '250px', height: '54px'}} width="250" height="54" /></a>
-                  </p>
                 </div>
 
                 <div className={styles.heroBook}>
@@ -212,6 +199,9 @@ export default function Home({ tweets }) {
             <h2>What people are saying</h2>
           </Container>
           <Container className={styles.tweets}>
+            <p>
+              <a className={styles.producthunt} href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" style={{width: '250px', height: '54px'}} width="250" height="54" /></a>
+            </p>
             <ul>
               {FEATURED_TWEETS.map(tweet => {
                 const { id, type, authorName, authorId, authorImage, content, contentUrl } = tweet;
@@ -342,7 +332,7 @@ export default function Home({ tweets }) {
           <Container>
             <h2>Order yours today!</h2>
             <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
-              Order for {cost}
+              Order for {PRODUCT_PRICE}
             </BuyWithStripe>
           </Container>
         </Section>
