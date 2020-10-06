@@ -22,9 +22,6 @@ export async function initCheckout({ lineItems } = {}) {
   const { error } = await stripe.redirectToCheckout({
     mode: 'payment',
     lineItems,
-    subscription_data: {
-      coupon: 'JAMSTACKCONF2020'
-    },
     successUrl: `${WEBSITE_HOST}${PAYMENT_SUCCESS_PATH}?session_id={CHECKOUT_SESSION_ID}`,
     cancelUrl: `${WEBSITE_HOST}${PAYMENT_CANCEL_PATH}`,
   });
