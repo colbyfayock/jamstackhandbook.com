@@ -86,8 +86,12 @@ const FEATURED_TWEETS = [
     ],
     type: 'twitter'
   },
-
 ]
+
+const PID_MAP = {
+  default: process.env.NEXT_PUBLIC_PRICE_ID,
+  jamstackconf: process.env.NEXT_PUBLIC_PRICE_ID_JAMSTACKCONF
+}
 
 export default function Home({ tweets }) {
   const [state, dispatch] = useReducer(reducer, {
@@ -101,11 +105,22 @@ export default function Home({ tweets }) {
 
   async function handleOnPurchase() {
     dispatch(setLoading(true));
+    let pid = PID_MAP.default;
+    const search = window.location.search.toLowerCase();
+
+    Object.keys(PID_MAP).forEach(key => {
+      if ( search.includes(`pid=${key.toLowerCase()}`) && PID_MAP[key] ) {
+        pid = PID_MAP[key];
+      }
+    });
+
+    console.log('pid', pid);
+
     try {
       await initCheckout({
         lineItems: [
           {
-            price: process.env.NEXT_PUBLIC_PRICE_ID,
+            price: pid,
             quantity: 1
           }
         ]
