@@ -15,7 +15,7 @@ import BuyWithStripe from '../components/BuyWithStripe';
 
 import { initCheckout, formatPrice } from '../lib/payments';
 
-const PRODUCT_PRICE = '$10.00';
+const PRODUCT_PRICE = '$5.00';
 const PRODUCT_CURRENCY = process.env.NEXT_PUBLIC_CURRENCY;
 
 import imageOgJamstackHandbook from '../images/jamstack-handbook-social.jpg';
@@ -90,7 +90,8 @@ const FEATURED_TWEETS = [
 
 const PID_MAP = {
   default: process.env.NEXT_PUBLIC_PRICE_ID,
-  jamstackconf: process.env.NEXT_PUBLIC_PRICE_ID_JAMSTACKCONF
+  blackFriday: process.env.NEXT_PUBLIC_PRICE_ID_BLACK_FRIDAY,
+  cyberMonday: process.env.NEXT_PUBLIC_PRICE_ID_CYBER_MONDAY
 }
 
 export default function Home({ tweets }) {
@@ -114,7 +115,13 @@ export default function Home({ tweets }) {
       }
     });
 
-    console.log('pid', pid);
+    // Black Friday
+
+    pid = PID_MAP.blackFriday
+
+    // Cyber Monday
+
+    // pid = PID_MAP.cyberMonday
 
     try {
       await initCheckout({
@@ -161,6 +168,14 @@ export default function Home({ tweets }) {
 
       <Main>
 
+        <Section className={styles.special} backgroundColor="purple">
+          <Container>
+            <p>
+              <strong>Black Friday!</strong> Get Jamstack Handbook for 50% off!
+            </p>
+          </Container>
+        </Section>
+
         <Section backgroundColor="gray-light">
           <Container>
             <Hero>
@@ -178,6 +193,10 @@ export default function Home({ tweets }) {
                   <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
                     Order for {PRODUCT_PRICE}
                   </BuyWithStripe>
+
+                  <p className={styles.note}>
+                    50% Off for a Limited Time!
+                  </p>
                 </div>
 
                 <div className={styles.heroBook}>
