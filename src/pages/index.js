@@ -15,7 +15,7 @@ import BuyWithStripe from '../components/BuyWithStripe';
 
 import { initCheckout, formatPrice } from '../lib/payments';
 
-const PRODUCT_PRICE = '$5.00';
+const PRODUCT_PRICE = '$8.00';
 const PRODUCT_CURRENCY = process.env.NEXT_PUBLIC_CURRENCY;
 
 import imageOgJamstackHandbook from '../images/jamstack-handbook-social.jpg';
@@ -115,13 +115,9 @@ export default function Home({ tweets }) {
       }
     });
 
-    // Black Friday
-
-    pid = PID_MAP.blackFriday
-
     // Cyber Monday
 
-    // pid = PID_MAP.cyberMonday
+    pid = PID_MAP.cyberMonday
 
     try {
       await initCheckout({
@@ -171,7 +167,7 @@ export default function Home({ tweets }) {
         <Section className={styles.special} backgroundColor="purple">
           <Container>
             <p>
-              <strong>Black Friday!</strong> Get Jamstack Handbook for 50% off!
+              <strong>Cyber Monday!</strong> Get Jamstack Handbook for 20% off + <strong>FREE</strong> sticker pack!
             </p>
           </Container>
         </Section>
@@ -195,7 +191,7 @@ export default function Home({ tweets }) {
                   </BuyWithStripe>
 
                   <p className={styles.note}>
-                    50% Off for a Limited Time!
+                    20% Off + FREE sticker pack for a limited time!
                   </p>
                 </div>
 
