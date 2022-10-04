@@ -33,9 +33,8 @@ const ogImage = `${URL}${imageOgJamstackHandbook}`;
 const FEATURED_TWEETS = [
   {
     id: '1306248642072805378',
-    authorName: 'Francois Lanthier Nadeau - CEO, Snipcart',
+    authorName: 'Francois Lanthier Nadeau',
     authorId: 'the_fln',
-    authorImage: 'https://pbs.twimg.com/profile_images/1211518028300587013/0UlXT7Iu_400x400.jpg',
     content: [
       'this is a comprehensive, useful, and accessible take on the Jamstack. Colby has been writing about Jamstack and building with it for a long while now. and his passion for the movement and technology shows.'
     ],
@@ -44,9 +43,9 @@ const FEATURED_TWEETS = [
   },
   {
     id: '1306228611654004737',
-    authorName: 'Ruby on Wills 🐺',
+    authorName: 'Will Johnson',
     authorId: 'willjohnsonio',
-    authorImage: 'https://pbs.twimg.com/profile_images/1284516800504397824/_5C0cPnE_400x400.jpg',
+    authorImage: 'https://pbs.twimg.com/profile_images/1562536785116549120/yMCGwgRF_400x400.jpg',
     content: [
       'I read the preview copy of this and it\'s worth way more than $10!',
       'It\'s starts with a clear explanation of the Jamstack to get to more comfortable then go straight into building ',
@@ -57,9 +56,9 @@ const FEATURED_TWEETS = [
   },
   {
     id: '1306265060839432195',
-    authorName: '🐴 Alex Trost',
+    authorName: 'Alex Trost',
     authorId: 'trostcodes',
-    authorImage: 'https://pbs.twimg.com/profile_images/1268565453611438080/kURicp04_400x400.jpg',
+    authorImage: 'https://pbs.twimg.com/profile_images/1558116076717805570/iICPBWXm_400x400.jpg',
     content: [
       'If you want to work with modern static sites, this is one of the most thorough resources on the JAMStack that I’ve seen.',
       '@colbyfayock wrote 50 React Projects, and now he goes into the what, why, and how of sites powered by Next, Gatsby, etc',
@@ -68,7 +67,7 @@ const FEATURED_TWEETS = [
   },
   {
     id: '1228449356426219521',
-    authorName: 'James Quick',
+    authorName: 'James Q Quick',
     authorId: 'jamesqquick',
     authorImage: 'https://pbs.twimg.com/profile_images/1228449356426219521/jIN5Ci7H_400x400.jpg',
     content: [
@@ -251,7 +250,7 @@ export default function Home({ tweets }) {
                         <FaQuoteRight className={styles.quoteIcon} />
                       )}
                       <p className={styles.tweetHeader}>
-                        <img width="200" height="200" src={authorImage} alt={authorName} />
+                        {authorImage && <img width="200" height="200" src={authorImage} alt={authorName} />}
                         <span className={styles.tweetName}>
                           <strong>{ authorName }</strong>
                           <span>@{ authorId }</span>
