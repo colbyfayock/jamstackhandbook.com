@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 
 import styles from '../styles/Home.module.scss'
 
@@ -57,7 +58,14 @@ export default function Success() {
             </p>
 
             <p>
-              <a className={styles.producthunt} href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" style={{width: '250px', height: '54px'}} width="250" height="54" /></a>
+              <a className={styles.producthunt} href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook" target="_blank">
+                <Image 
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" 
+                  alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" 
+                  width={250} 
+                  height={54}
+                />
+              </a>
             </p>
 
             <h2>Let people know you downloaded it!</h2>

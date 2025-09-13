@@ -1,5 +1,6 @@
 import { useReducer, useEffect, useState } from 'react';
 import Head from 'next/head'
+import Image from 'next/image'
 import { useRouter } from 'next/router';
 import { FaBook, FaLaptopCode, FaTwitter, FaQuoteRight, FaProductHunt } from 'react-icons/fa';
 
@@ -109,17 +110,6 @@ export default function Home() {
     dispatch(setLoading(true));
   }
 
-  /**
-   * handleOnSuccess
-   */
-
-  function handleOnSuccess(result) {
-    // This is called when the form submission succeeds
-    dispatch(setLoading(false));
-    console.log('Download successful:', result);
-    // Note: The form service redirects back to the page with success params
-    // so we don't need to handle redirect here
-  }
 
   /**
    * handleOnError
@@ -186,7 +176,6 @@ export default function Home() {
                   <DownloadForm 
                     className={styles.heroForm} 
                     onSubmit={handleOnDownload} 
-                    onSuccess={handleOnSuccess}
                     onError={handleOnError}
                     disabled={state.loading} 
                   />
@@ -243,7 +232,14 @@ export default function Home() {
           </Container>
           <Container className={styles.tweets}>
             <p>
-              <a className={styles.producthunt} href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" style={{width: '250px', height: '54px'}} width="250" height="54" /></a>
+              <a className={styles.producthunt} href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook" target="_blank">
+                <img 
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" 
+                  alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" 
+                  width={250} 
+                  height={54}
+                />
+              </a>
             </p>
             <ul>
               {FEATURED_TWEETS.map(tweet => {
@@ -272,7 +268,15 @@ export default function Home() {
                         <FaQuoteRight className={styles.quoteIcon} />
                       )}
                       <p className={styles.tweetHeader}>
-                        {authorImage && <img width="200" height="200" src={authorImage} alt={authorName} />}
+                        {authorImage && (
+                          <Image 
+                            width={200} 
+                            height={200} 
+                            src={authorImage} 
+                            alt={authorName}
+                            className={styles.authorImage}
+                          />
+                        )}
                         <span className={styles.tweetName}>
                           <strong>{ authorName }</strong>
                           <span>@{ authorId }</span>
@@ -334,7 +338,12 @@ export default function Home() {
           <Container>
 
             <div>
-              <img loading="lazy" width="400" height="400" src="/images/colby-fayock-400x400.jpg" alt="Colby Fayock" />
+              <Image 
+                src="/images/colby-fayock-400x400.jpg" 
+                alt="Colby Fayock" 
+                width={400} 
+                height={400}
+              />
             </div>
 
             <div>
@@ -355,13 +364,28 @@ export default function Home() {
           </Container>
           <Container className={styles.tableOfContentsContainer}>
             <a href="/images/jamstack-handbook-table-of-contents-1.jpg" target="_blank">
-              <img loading="lazy" src="/images/jamstack-handbook-table-of-contents-1.jpg" alt="Table of Contents 1/3" />
+              <Image 
+                src="/images/jamstack-handbook-table-of-contents-1.jpg" 
+                alt="Table of Contents 1/3" 
+                width={600}
+                height={800}
+              />
             </a>
             <a href="/images/jamstack-handbook-table-of-contents-2.jpg" target="_blank">
-              <img loading="lazy" src="/images/jamstack-handbook-table-of-contents-2.jpg" alt="Table of Contents 2/3" />
+              <Image 
+                src="/images/jamstack-handbook-table-of-contents-2.jpg" 
+                alt="Table of Contents 2/3" 
+                width={600}
+                height={800}
+              />
             </a>
             <a href="/images/jamstack-handbook-table-of-contents-3.jpg" target="_blank">
-              <img loading="lazy" src="/images/jamstack-handbook-table-of-contents-3.jpg" alt="Table of Contents 3/3" />
+              <Image 
+                src="/images/jamstack-handbook-table-of-contents-3.jpg" 
+                alt="Table of Contents 3/3" 
+                width={600}
+                height={800}
+              />
             </a>
           </Container>
           <Container>
@@ -377,7 +401,6 @@ export default function Home() {
             <DownloadForm 
               className={styles.footerForm} 
               onSubmit={handleOnDownload} 
-              onSuccess={handleOnSuccess}
               onError={handleOnError}
               disabled={state.loading} 
             />

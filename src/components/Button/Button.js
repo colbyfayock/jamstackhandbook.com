@@ -8,9 +8,20 @@ const Button = ({ children, className, isLoading, ...rest }) => {
     buttonClassName = `${buttonClassName} ${className}`;
   }
 
+  if (isLoading) {
+    buttonClassName = `${buttonClassName} ${styles.loading}`;
+  }
+
   return (
     <button {...rest} className={buttonClassName} disabled={isLoading || rest.disabled}>
-      {isLoading ? 'Loading...' : children}
+      <span className={isLoading ? styles.hiddenText : undefined}>
+        {children}
+      </span>
+      {isLoading && (
+        <div className={styles.spinner}>
+          <div className={styles.spinnerIcon}></div>
+        </div>
+      )}
     </button>
   )
 }
