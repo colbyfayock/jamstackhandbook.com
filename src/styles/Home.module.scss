@@ -73,54 +73,30 @@
 
 }
 
-
-
-/* Form */
-
-.form {
-
-  max-width: 15rem;
-  margin: 2rem auto 0;
-
-  @media (max-width: 600px) {
-    padding: 0 2rem;
-  }
-
-}
-
-@media (max-width: 600px) {
-  .form {
-    width: 100%;
-    max-width: none;
-    font-size: 1.2em;
-  }
-}
-
-.form p,
-.form input,
-.form button {
-  width: 100%;
+.heroForm {
+  display: flex;
+  justify-content: center;
   text-align: center;
-}
+  flex-direction: column;
+  @media (min-width: 960px) {
+    justify-content: flex-start;
+  }
 
-.form p {
-  color: var(--color-gray-light);
-  font-size: .8em;
-  font-weight: 400;
-}
+  input[type="email"] {
+    width: 20em;
+    text-align: center;
+    @media (min-width: 960px) {
+      text-align: left;
+    }
+  }
 
-.form input {
-  height: 2.5em;
-  font-size: 1.1em;
-}
-
-.form[data-theme="light"] input {
-  border: solid 2px var(--color-gray-medium);
-}
-
-.form button {
-  color: white;
-  margin-top: .6em;
+  button {
+    max-width: 10em;
+    margin: 0 auto;
+    @media (min-width: 960px) {
+      margin: 0;
+    }
+  }
 }
 
 
@@ -535,4 +511,28 @@
     font-size: .9em;
   }
 
+}
+
+
+
+.footerForm {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+
+  input {
+    text-align: center;
+  }
+}
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: var(--border-radius-small);
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
 }

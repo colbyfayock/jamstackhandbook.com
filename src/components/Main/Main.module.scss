@@ -1,3 +1,7 @@
 .main {
   border-top: solid 20px var(--color-purple);
 }
+
+div + .main {
+  border-top: solid 10px var(--color-purple);
+}

@@ -1,6 +1,6 @@
 import styles from './Button.module.scss';
 
-const Button = ({ children, className, ...rest }) => {
+const Button = ({ children, className, isLoading, ...rest }) => {
 
   let buttonClassName = styles.button;
 
@@ -9,8 +9,8 @@ const Button = ({ children, className, ...rest }) => {
   }
 
   return (
-    <button {...rest} className={buttonClassName} >
-      { children }
+    <button {...rest} className={buttonClassName} disabled={isLoading || rest.disabled}>
+      {isLoading ? 'Loading...' : children}
     </button>
   )
 }

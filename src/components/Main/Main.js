@@ -2,7 +2,7 @@ import styles from './Main.module.scss';
 
 const Main = ({ children }) => {
   return (
-    <div className={styles.main}>
+    <div id="main" className={styles.main}>
       { children }
     </div>
   )

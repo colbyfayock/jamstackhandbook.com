@@ -1,5 +1,6 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect, useState } from 'react';
 import Head from 'next/head'
+import { useRouter } from 'next/router';
 import { FaBook, FaLaptopCode, FaTwitter, FaQuoteRight, FaProductHunt } from 'react-icons/fa';
 
 import styles from '../styles/Home.module.scss'
@@ -10,31 +11,21 @@ import Hero from '../components/Hero';
 import Container from '../components/Container';
 import Book from '../components/Book';
 import Footer from '../components/Footer';
-import Button from '../components/Button';
-import BuyWithStripe from '../components/BuyWithStripe';
-
-import { initCheckout, formatPrice } from '../lib/payments';
-
-const PRODUCT_PRICE = '$10.00';
-const PRODUCT_CURRENCY = process.env.NEXT_PUBLIC_CURRENCY;
-
-import imageOgJamstackHandbook from '../images/jamstack-handbook-social.jpg';
-import imageColbyFayock from '../images/colby-fayock-400x400.jpg';
-import imageTableOfContents1 from '../images/jamstack-handbook-table-of-contents-1.jpg';
-import imageTableOfContents2 from '../images/jamstack-handbook-table-of-contents-2.jpg';
-import imageTableOfContents3 from '../images/jamstack-handbook-table-of-contents-3.jpg';
+import DownloadForm from '../components/DownloadForm';
+import Banner from '../components/Banner';
 
 const TITLE = 'Jamstack Handbook';
 const TAGLINE = 'Building fast, dynamic apps with Javascript and the static web';
 const DESCRIPTION = 'Building fast, dynamic apps with Javascript and the static web';
 const URL = 'https://jamstackhandbook.com';
-const ogImage = `${URL}${imageOgJamstackHandbook}`;
+const ogImage = `${URL}/images/jamstack-handbook-social.jpg`;
 
 const FEATURED_TWEETS = [
   {
     id: '1306248642072805378',
     authorName: 'Francois Lanthier Nadeau',
     authorId: 'the_fln',
+    authorImage: 'https://ph-avatars.imgix.net/33608/original.jpeg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=120&h=120&fit=crop&frame=1&dpr=2',
     content: [
       'this is a comprehensive, useful, and accessible take on the Jamstack. Colby has been writing about Jamstack and building with it for a long while now. and his passion for the movement and technology shows.'
     ],
@@ -45,7 +36,7 @@ const FEATURED_TWEETS = [
     id: '1306228611654004737',
     authorName: 'Will Johnson',
     authorId: 'willjohnsonio',
-    authorImage: 'https://pbs.twimg.com/profile_images/1562536785116549120/yMCGwgRF_400x400.jpg',
+    authorImage: 'https://pbs.twimg.com/profile_images/1625888957396316168/afVE-xdI_400x400.jpg',
     content: [
       'I read the preview copy of this and it\'s worth way more than $10!',
       'It\'s starts with a clear explanation of the Jamstack to get to more comfortable then go straight into building ',
@@ -69,7 +60,7 @@ const FEATURED_TWEETS = [
     id: '1228449356426219521',
     authorName: 'James Q Quick',
     authorId: 'jamesqquick',
-    authorImage: 'https://pbs.twimg.com/profile_images/1228449356426219521/jIN5Ci7H_400x400.jpg',
+    authorImage: 'https://pbs.twimg.com/profile_images/1596308940794609664/ETIx-wHp_400x400.jpg',
     content: [
       'Jamstack is the new hotness, but it\'s hard to find a clear definition of what exactly it is. Colby does an amazing job of breaking down the key components and benefits of the Jamstack with relevant examples. He also has some hands-on tutorials at the end to get you going. This book is 🔥 and more than worth it!',
     ],
@@ -81,50 +72,63 @@ const FEATURED_TWEETS = [
     authorId: 'QuetCodesFire',
     authorImage: 'https://pbs.twimg.com/profile_images/1195163512332541953/cmKyK8Hr_400x400.jpg',
     content: [
-      'Jamstack Handbook explains WHAT jamstack is, WHO can benefit from using it, WHERE you can find resources, WHEN you can use it, WHY you should use it, and HOW you can get started with 3 guides to build 3 different projects. #jamstackhandbook',
+      'Jamstack Handbook explains WHAT Jamstack is, WHO can benefit from using it, WHERE you can find resources, WHEN you can use it, WHY you should use it, and HOW you can get started with 3 guides to build 3 different projects. #jamstackhandbook',
     ],
     type: 'twitter'
   },
 ]
 
-const PID_MAP = {
-  default: process.env.NEXT_PUBLIC_PRICE_ID
-}
-
-export default function Home({ tweets }) {
+export default function Home() {
+  const router = useRouter();
+  const [isSuccess, setIsSuccess] = useState(false);
+  
   const [state, dispatch] = useReducer(reducer, {
     loading: false,
     error: null,
   });
 
+  // Check for success parameters on component mount and route changes
+  useEffect(() => {
+    const { status, message } = router.query;
+    if (status === 'success' && message) {
+      setIsSuccess(true);
+      // Clear any existing errors
+      dispatch(setError(null));
+    } else {
+      setIsSuccess(false);
+    }
+  }, [router.query]);
+
   /**
-   * handleOnPurchase
+   * handleOnDownload
    */
 
-  async function handleOnPurchase() {
+  function handleOnDownload() {
+    // Clear any previous errors and set loading state
+    dispatch(setError(null));
     dispatch(setLoading(true));
-    let pid = PID_MAP.default;
-    const search = window.location.search.toLowerCase();
+  }
 
-    Object.keys(PID_MAP).forEach(key => {
-      if ( search.includes(`pid=${key.toLowerCase()}`) && PID_MAP[key] ) {
-        pid = PID_MAP[key];
-      }
-    });
+  /**
+   * handleOnSuccess
+   */
 
-    try {
-      await initCheckout({
-        lineItems: [
-          {
-            price: pid,
-            quantity: 1
-          }
-        ]
-      });
-    } catch(e) {
-      dispatch(setLoading(false));
-      dispatch(setError(e));
-    }
+  function handleOnSuccess(result) {
+    // This is called when the form submission succeeds
+    dispatch(setLoading(false));
+    console.log('Download successful:', result);
+    // Note: The form service redirects back to the page with success params
+    // so we don't need to handle redirect here
+  }
+
+  /**
+   * handleOnError
+   */
+
+  function handleOnError(error) {
+    // This is called when the form submission fails
+    dispatch(setLoading(false));
+    dispatch(setError(error.message || 'Download failed. Please try again.'));
   }
 
   return (
@@ -155,6 +159,14 @@ export default function Home({ tweets }) {
         <link rel="icon" type="image/png" href="/images/favicon-512x512.png" />
       </Head>
 
+      <Banner variant={isSuccess ? 'success' : 'default'}>
+        {isSuccess ? (
+          <p>✉️ <strong>Check your email for a link!</strong> Your download will be available shortly.</p>
+        ) : (
+          <p>🎉 <strong>Jamstack Handbook is now free!</strong> Download your copy today! 🎉</p>
+        )}
+      </Banner>
+
       <Main>
 
         <Section backgroundColor="gray-light">
@@ -171,9 +183,19 @@ export default function Home({ tweets }) {
                     Get started on the Jamstack with this <strong>deep dive</strong> including <strong>3 tutorials</strong>.
                   </p>
 
-                  <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
-                    Order for {PRODUCT_PRICE}
-                  </BuyWithStripe>
+                  <DownloadForm 
+                    className={styles.heroForm} 
+                    onSubmit={handleOnDownload} 
+                    onSuccess={handleOnSuccess}
+                    onError={handleOnError}
+                    disabled={state.loading} 
+                  />
+                  
+                  {state.error && (
+                    <div className={styles.errorMessage}>
+                      {state.error}
+                    </div>
+                  )}
                 </div>
 
                 <div className={styles.heroBook}>
@@ -312,7 +334,7 @@ export default function Home({ tweets }) {
           <Container>
 
             <div>
-              <img loading="lazy" width="400" height="400" src={imageColbyFayock} alt="Colby Fayock" />
+              <img loading="lazy" width="400" height="400" src="/images/colby-fayock-400x400.jpg" alt="Colby Fayock" />
             </div>
 
             <div>
@@ -332,14 +354,14 @@ export default function Home({ tweets }) {
             </h2>
           </Container>
           <Container className={styles.tableOfContentsContainer}>
-            <a href={imageTableOfContents1} target="_blank">
-              <img loading="lazy" src={imageTableOfContents1} alt="Table of Contents 1/3" />
+            <a href="/images/jamstack-handbook-table-of-contents-1.jpg" target="_blank">
+              <img loading="lazy" src="/images/jamstack-handbook-table-of-contents-1.jpg" alt="Table of Contents 1/3" />
             </a>
-            <a href={imageTableOfContents2} target="_blank">
-              <img loading="lazy" src={imageTableOfContents2} alt="Table of Contents 2/3" />
+            <a href="/images/jamstack-handbook-table-of-contents-2.jpg" target="_blank">
+              <img loading="lazy" src="/images/jamstack-handbook-table-of-contents-2.jpg" alt="Table of Contents 2/3" />
             </a>
-            <a href={imageTableOfContents3} target="_blank">
-              <img loading="lazy" src={imageTableOfContents3} alt="Table of Contents 3/3" />
+            <a href="/images/jamstack-handbook-table-of-contents-3.jpg" target="_blank">
+              <img loading="lazy" src="/images/jamstack-handbook-table-of-contents-3.jpg" alt="Table of Contents 3/3" />
             </a>
           </Container>
           <Container>
@@ -351,10 +373,20 @@ export default function Home({ tweets }) {
 
         <Section className={styles.order} backgroundColor="gray-light">
           <Container>
-            <h2>Order yours today!</h2>
-            <BuyWithStripe onClick={handleOnPurchase} disabled={state.loading}>
-              Order for {PRODUCT_PRICE}
-            </BuyWithStripe>
+            <h2>Download your free copy today!</h2>
+            <DownloadForm 
+              className={styles.footerForm} 
+              onSubmit={handleOnDownload} 
+              onSuccess={handleOnSuccess}
+              onError={handleOnError}
+              disabled={state.loading} 
+            />
+            
+            {state.error && (
+              <div className={styles.errorMessage}>
+                {state.error}
+              </div>
+            )}
           </Container>
         </Section>
 
