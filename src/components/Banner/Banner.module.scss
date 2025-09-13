@@ -1,0 +1,47 @@
+.banner {
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-purple-light) 100%);
+  color: white;
+  text-align: center;
+  padding: .7rem 2rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  position: relative;
+  
+  p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  strong {
+    color: white;
+    font-weight: 700;
+  }
+  
+  @media (min-width: 768px) {
+    padding: .8rem 2rem;
+  }
+}
+
+.bannerSuccess {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  text-align: center;
+  padding: .7rem 2rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  position: relative;
+  
+  p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  strong {
+    color: white;
+    font-weight: 700;
+  }
+  
+  @media (min-width: 768px) {
+    padding: .8rem 2rem;
+  }
+}

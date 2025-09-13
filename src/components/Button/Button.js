@@ -1,6 +1,6 @@
 import styles from './Button.module.scss';
 
-const Button = ({ children, className, ...rest }) => {
+const Button = ({ children, className, isLoading, ...rest }) => {
 
   let buttonClassName = styles.button;
 
@@ -8,9 +8,20 @@ const Button = ({ children, className, ...rest }) => {
     buttonClassName = `${buttonClassName} ${className}`;
   }
 
+  if (isLoading) {
+    buttonClassName = `${buttonClassName} ${styles.loading}`;
+  }
+
   return (
-    <button {...rest} className={buttonClassName} >
-      { children }
+    <button {...rest} className={buttonClassName} disabled={isLoading || rest.disabled}>
+      <span className={isLoading ? styles.hiddenText : undefined}>
+        {children}
+      </span>
+      {isLoading && (
+        <div className={styles.spinner}>
+          <div className={styles.spinnerIcon}></div>
+        </div>
+      )}
     </button>
   )
 }

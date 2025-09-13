@@ -10,9 +10,9 @@ const Footer = () => {
   const twitterAction = createTweetAction({
     message: [
 `🧐 Ever wondered what #jamstack is and what makes it so great?\n
-🚀 Check out the Jamstack Handbook from @colbyfayock\n
+🚀 Check out the FREE Jamstack Handbook from @colbyfayock\n
 ⚡️ It shows you how to build fast dynamic apps w/ #javascript and the static web\n
-👉 Go grab your copy!\n
+👉 Go grab your free copy!\n
 #jamstack101 #jamstackhandbook\n
 https://jamstackhandbook.com/`
     ]
@@ -39,7 +39,7 @@ https://jamstackhandbook.com/`
       </Section>
       <Section backgroundColor="purple">
         <Container>
-          <h3>Want to bulk order or have other questions?</h3>
+          <h3>Have questions?</h3>
           <p>
             Contact me at hello@colbyfayock.com
           </p>

@@ -20,11 +20,11 @@ body {
 
 body,
 #__next,
-#__next > div {
+#main {
   min-height: 100vh;
 }
 
-#__next > div {
+#main {
   display: grid;
   grid-template-rows: 1fr auto;
 }

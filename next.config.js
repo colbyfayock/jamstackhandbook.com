@@ -1,3 +1,13 @@
-const withImages = require('next-images');
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    domains: [
+      'api.producthunt.com',
+      'pbs.twimg.com',
+      'ph-avatars.imgix.net'
+    ],
+  },
+}
 
-module.exports = withImages();
+module.exports = nextConfig

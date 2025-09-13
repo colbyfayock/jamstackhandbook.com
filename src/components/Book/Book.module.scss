@@ -46,7 +46,7 @@ $book-thickness: 0.375em;
     content: ' ';
     background-color: blue;
     left: 10.4em;
-    top: $book-thickness / 2;
+    top: calc($book-thickness / 2);
     width: 1.75em;
     height: $book-height - $book-thickness;
     transform: translateX($book-thickness * 3) rotateY(90deg);

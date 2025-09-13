@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 
 import styles from '../styles/Home.module.scss'
 
@@ -14,9 +15,9 @@ import Button from '../components/Button';
 export default function Success() {
   const twitterAction = createTweetAction({
     message: [
-      '🚀 I just ordered Jamstack Handbook from @colbyfayock\n',
+      '🚀 I just downloaded the free Jamstack Handbook from @colbyfayock\n',
       '⚡️ It shows you how to build fast dynamic #webdev apps with #javascript and the #jamstack\n',
-      '👉 Go grab your copy now!\n',
+      '👉 Go grab your free copy now!\n',
       '#jamstackhandbook\n',
       'https://jamstackhandbook.com',
     ]
@@ -43,12 +44,12 @@ export default function Success() {
           <Container>
 
             <h1>
-              Successfully purchased Jamstack Handbook!
+              Check your inbox!
             </h1>
 
             <p>
-              You should receive message within a few minutes to the email you
-              provided during checkout. If you don't see it, please check your
+              You should receive an email within a few minutes with your download link to the email you
+              provided. If you don't see it, please check your
               Spam folder or Promotions tab.
             </p>
 
@@ -57,10 +58,17 @@ export default function Success() {
             </p>
 
             <p>
-              <a className={styles.producthunt} href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" style={{width: '250px', height: '54px'}} width="250" height="54" /></a>
+              <a className={styles.producthunt} href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook" target="_blank">
+                <Image 
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" 
+                  alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" 
+                  width={250} 
+                  height={54}
+                />
+              </a>
             </p>
 
-            <h2>Let people know you just ordered!</h2>
+            <h2>Let people know you downloaded it!</h2>
 
             <Button onClick={handleOnTwitterClick}>Share on Twitter</Button>
 
