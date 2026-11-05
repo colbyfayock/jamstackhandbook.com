@@ -1,0 +1,22 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import main from '../components/Main/Main.module.scss';
+import section from '../components/Section/Section.module.scss';
+import container from '../components/Container/Container.module.scss';
+import button from '../components/Button/Button.module.scss';
+const share = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('🚀 I just downloaded the free Jamstack Handbook from @colbyfayock\n⚡️ It shows you how to build fast dynamic #webdev apps with #javascript and the #jamstack\n👉 Go grab your free copy now!\n#jamstackhandbook\nhttps://jamstackhandbook.com');
+---
+<SiteLayout title="Success - Jamstack Handbook">
+  <div>
+    <div id="main" class={main.main}><section class={section.section}><div class={container.container}>
+      <h1>Check your inbox!</h1>
+      <p>You should receive an email within a few minutes with your download link to the email you provided. If you don't see it, please check your Spam folder or Promotions tab.</p>
+      <p>Questions or issues? Reach out at <a href="mailto:hello@colbyfayock.com">hello@colbyfayock.com</a></p>
+      <p><a href="https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&amp;utm_medium=badge&amp;utm_souce=badge-jamstack-handbook" target="_blank" rel="noreferrer"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&amp;theme=light" alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" width="250" height="54" /></a></p>
+      <h2>Let people know you downloaded it!</h2>
+      <a class={button.button} href={share} target="_blank" rel="noreferrer">Share on Twitter</a>
+    </div></section></div>
+  </div>
+  <SiteFooter />
+</SiteLayout>

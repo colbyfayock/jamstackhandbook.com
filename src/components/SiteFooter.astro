@@ -1,0 +1,23 @@
+---
+import styles from './Footer/Footer.module.scss';
+import section from './Section/Section.module.scss';
+import container from './Container/Container.module.scss';
+import button from './Button/Button.module.scss';
+const share = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('🧐 Ever wondered what #jamstack is and what makes it so great?\n\n🚀 Check out the FREE Jamstack Handbook from @colbyfayock\n\n⚡️ It shows you how to build fast dynamic apps w/ #javascript and the static web\n\n👉 Go grab your free copy!\n\n#jamstack101 #jamstackhandbook\n\nhttps://jamstackhandbook.com/');
+const year = new Date().getFullYear();
+---
+<footer class={styles.footer}>
+  <div class={section.section} data-background-color="blue">
+    <div class={container.container}>
+      <h2 class={styles.shareheader}>Love this ebook?</h2>
+      <p><a class={button.button} href={share} target="_blank" rel="noreferrer" style="text-decoration:none">Share on Twitter</a></p>
+    </div>
+  </div>
+  <div class={section.section} data-background-color="purple">
+    <div class={container.container}>
+      <h3>Have questions?</h3>
+      <p>Contact me at <a href="mailto:hello@colbyfayock.com">hello@colbyfayock.com</a></p>
+      <p class={styles.copyright}>&copy; {year}, <a href="https://twitter.com/colbyfayock">Colby Fayock</a></p>
+    </div>
+  </div>
+</footer>
