@@ -1,0 +1,13 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import main from '../components/Main/Main.module.scss';
+import section from '../components/Section/Section.module.scss';
+import container from '../components/Container/Container.module.scss';
+---
+<SiteLayout title="Page Not Found - Jamstack Handbook">
+  <main id="main" class={main.main}><section class={section.section}><div class={container.container}>
+    <h1>Page not found</h1>
+    <p>The page you were looking for doesn’t exist.</p>
+    <p><a href="/">Return to Jamstack Handbook</a></p>
+  </div></section></main>
+</SiteLayout>

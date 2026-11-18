@@ -1,0 +1,111 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import DownloadForm from '../components/DownloadForm.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import home from '../styles/Home.module.scss';
+import main from '../components/Main/Main.module.scss';
+import section from '../components/Section/Section.module.scss';
+import container from '../components/Container/Container.module.scss';
+import hero from '../components/Hero/Hero.module.scss';
+import book from '../components/Book/Book.module.scss';
+import banner from '../components/Banner/Banner.module.scss';
+const featuredTweets = [
+  { id: '1306248642072805378', authorName: 'Francois Lanthier Nadeau', authorId: 'the_fln', authorImage: 'https://ph-avatars.imgix.net/33608/original.jpeg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=120&h=120&fit=crop&frame=1&dpr=2', content: ['this is a comprehensive, useful, and accessible take on the Jamstack. Colby has been writing about Jamstack and building with it for a long while now. and his passion for the movement and technology shows.'], contentUrl: 'https://www.producthunt.com/posts/jamstack-handbook#comment-1142984', type: 'producthunt' },
+  { id: '1306228611654004737', authorName: 'Will Johnson', authorId: 'willjohnsonio', authorImage: 'https://pbs.twimg.com/profile_images/1625888957396316168/afVE-xdI_400x400.jpg', content: ["I read the preview copy of this and it's worth way more than $10!", "It’s starts with a clear explanation of the Jamstack to get to more comfortable then go straight into building ", 'If you want to learn all the buzz check this out ', 'http://jamstackhandbook.com'], type: 'twitter' },
+  { id: '1306265060839432195', authorName: 'Alex Trost', authorId: 'trostcodes', authorImage: 'https://pbs.twimg.com/profile_images/1558116076717805570/iICPBWXm_400x400.jpg', content: ["If you want to work with modern static sites, this is one of the most thorough resources on the JAMStack that I’ve seen.", '@colbyfayock wrote 50 React Projects, and now he goes into the what, why, and how of sites powered by Next, Gatsby, etc'], type: 'twitter' },
+  { id: '1228449356426219521', authorName: 'James Q Quick', authorId: 'jamesqquick', content: ["Jamstack is the new hotness, but it's hard to find a clear definition of what exactly it is. Colby does an amazing job of breaking down the key components and benefits of the Jamstack with relevant examples. He also has some hands-on tutorials at the end to get you going. This book is 🔥 and more than worth it!"], type: 'quote' },
+  { id: '1306578953998606338', authorName: 'Marquet Reid', authorId: 'QuetCodesFire', authorImage: 'https://pbs.twimg.com/profile_images/1195163512332541953/cmKyK8Hr_400x400.jpg', content: ['Jamstack Handbook explains WHAT Jamstack is, WHO can benefit from it, WHERE you can find resources, WHEN you can use it, WHY you should use it, and HOW you can get started with 3 guides to build 3 different projects. #jamstackhandbook'], type: 'twitter' },
+];
+const productHunt = 'https://www.producthunt.com/posts/jamstack-handbook?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jamstack-handbook';
+---
+<SiteLayout description="Building fast, dynamic apps with Javascript and the static web">
+  <div class={banner.banner} data-success-banner data-success-class={banner.bannerSuccess} data-default-class={banner.banner}>
+    <p>🎉 <strong>Jamstack Handbook is now free!</strong> Download your copy today! 🎉</p>
+  </div>
+  <div id="main" class={main.main}>
+    <section class={section.section} data-background-color="gray-light"><div class={container.container}>
+      <div class={hero.hero}><div class={home.hero}>
+        <div class={home.heroContent}><h1>Jamstack Handbook</h1>
+          <p class={home.tagline}>Get started on the Jamstack with this <strong>deep dive</strong> including <strong>3 tutorials</strong>.</p>
+          <DownloadForm className={home.heroForm} />
+          <div class={home.errorMessage} data-form-error role="alert" hidden></div>
+        </div>
+        <div class={home.heroBook}><span class={book.container}><span class={book.book}><img src="/images/jamstack-handbook-cover.jpg" alt="Jamstack Handbook" width="400" height="600" /></span></span></div>
+      </div></div>
+    </div></section>
+
+    <section class={`${section.section} ${home.highlights}`} data-background-color="blue"><div class={container.container}><ul>
+      <li><div aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 3h13l3 3v15H4zm2 2v14h12V7h-3V5zm2 4h8v2H8zm0 4h8v2H8z"/></svg></div><div><h3>100 pages of JAM</h3><p>All you need to know about the Jamstack</p></div></li>
+      <li><div aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v12H4zm-2 14h20v2H2zm7-12v8l7-4z"/></svg></div><div><h3>3 JAM-Packed Tutorials</h3><p>Learn by doing by building different 3 apps</p></div></li>
+    </ul></div></section>
+
+    <section class={section.section}><div class={container.container}><h2>What people are saying</h2></div>
+      <div class={`${container.container} ${home.tweets}`}>
+        <p><a href={productHunt} target="_blank" rel="noreferrer"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=260316&theme=light" alt="Jamstack Handbook - Build fast, dynamic apps with Javascript and the static web | Product Hunt Embed" width="250" height="54" /></a></p>
+        <ul>{featuredTweets.map((tweet) => {
+          const url = tweet.contentUrl || (tweet.type === 'twitter' ? `https://twitter.com/${tweet.authorId}/status/${tweet.id}` : `https://twitter.com/${tweet.authorId}`);
+          return <li><a class={home.tweet} href={url}>
+            {tweet.type === 'twitter' && <svg class={home.tweetIcon} viewBox="0 0 24 24" aria-label="Twitter"><path fill="currentColor" d="M22 5.9a8 8 0 0 1-2.4.7 4.2 4.2 0 0 0 1.8-2.3 8.3 8.3 0 0 1-2.7 1 4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.2 4.8a4.1 4.1 0 0 0 1.3 5.5 4 4 0 0 1-1.9-.5v.1a4.1 4.1 0 0 0 3.3 4 4 4 0 0 1-1.9.1 4.1 4.1 0 0 0 3.8 2.8A8.3 8.3 0 0 1 2 18.5a11.7 11.7 0 0 0 17.9-9.9v-.5A8.4 8.4 0 0 0 22 5.9"/></svg>}
+            {tweet.type === 'producthunt' && <span class={home.producthuntIcon} aria-hidden="true">P</span>}
+            {tweet.type === 'quote' && <span class={home.quoteIcon} aria-hidden="true">“</span>}
+            <p class={home.tweetHeader}>{tweet.authorImage && <img width="200" height="200" src={tweet.authorImage} alt={tweet.authorName} class={home.authorImage} />}<span class={home.tweetName}><strong>{tweet.authorName}</strong><span>@{tweet.authorId}</span></span></p>
+            <div class={home.tweetContent}>{tweet.content.map((content) => <p>{content}</p>)}</div>
+            {tweet.type !== 'quote' && <p class={home.tweetFooter}><span>{tweet.type === 'twitter' ? 'View Tweet' : 'View Comment'}</span></p>}
+          </a></li>;
+        })}</ul>
+      </div>
+    </section>
+
+    <section class={`${section.section} ${home.learn}`} data-background-color="blue-dark"><div class={container.container}><h2>What you'll learn...</h2><ul>
+      <li>🤔 What is the Jamstack?</li><li>💪 What makes the Jamstack so awesome?</li><li>😢 What isn't the Jamstack great at?</li><li>⚡️ What makes the Jamstack so fast?</li><li>🛠 How can you build your own Jamstack app?</li>
+    </ul></div></section>
+
+    <section class={`${section.section} ${home.author}`} data-background-color="purple"><div class={container.container}>
+      <div><img src="/images/colby-fayock-400x400.jpg" alt="Colby Fayock" width="400" height="400" /></div>
+      <div><h2>From <a href="https://twitter.com/colbyfayock">Colby Fayock</a></h2><p>The author of <a href="http://50reactprojects.com/" target="_blank" rel="noreferrer">50 Projects for React &amp; the Static Web</a></p></div>
+    </div></section>
+
+    <section class={`${section.section} ${home.tableOfContents}`}><div class={container.container}><h2 class={home.tableOfContentsHeadline}>What to expect in Jamstack Handbook</h2></div>
+      <div class={`${container.container} ${home.tableOfContentsContainer}`}>
+        {[1, 2, 3].map((i) => <a href={`/images/jamstack-handbook-table-of-contents-${i}.jpg`} target="_blank" rel="noreferrer"><img src={`/images/jamstack-handbook-table-of-contents-${i}.jpg`} alt={`Table of Contents ${i}/3`} width="600" height="800" /></a>)}
+      </div><div class={container.container}><p class={home.tableOfContentsNote}>Click on an image to open it in a new tab.</p></div>
+    </section>
+
+    <section class={`${section.section} ${home.order}`} data-background-color="gray-light"><div class={container.container}><h2>Download your free copy today!</h2>
+      <DownloadForm className={home.footerForm} /><div class={home.errorMessage} data-form-error role="alert" hidden></div>
+    </div></section>
+  </div>
+  <SiteFooter />
+  <script is:inline>
+    const banner = document.querySelector('[data-success-banner]');
+    const query = new URLSearchParams(window.location.search);
+    if (query.get('status') === 'success' && query.get('message')) {
+      banner.classList.remove(banner.dataset.defaultClass);
+      banner.classList.add(banner.dataset.successClass);
+      banner.innerHTML = '<p>✉️ <strong>Check your email for a link!</strong> Your download will be available shortly.</p>';
+    }
+    document.querySelectorAll('[data-download-form]').forEach((form) => {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const submit = form.querySelector('[type="submit"]');
+        const email = form.querySelector('[name="email"]');
+        const error = form.parentElement.querySelector('[data-form-error]');
+        submit.disabled = true;
+        submit.textContent = 'Downloading…';
+        error.hidden = true;
+        try {
+          const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+          const result = await response.json();
+          if (!result.success) throw new Error(result.message || 'Form submission failed');
+          if (result.redirectUrl) window.location.href = result.redirectUrl;
+        } catch (err) {
+          error.textContent = err.message || 'Download failed. Please try again.';
+          error.hidden = false;
+          submit.disabled = false;
+          submit.textContent = 'Download Free';
+          email.focus();
+        }
+      });
+    });
+  </script>
+</SiteLayout>

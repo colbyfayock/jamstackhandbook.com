@@ -1,0 +1,12 @@
+---
+import styles from './DownloadForm/DownloadForm.module.scss';
+import button from './Button/Button.module.scss';
+const { className = '' } = Astro.props;
+---
+<form class={`${styles.form} downloadform ${className}`} action="https://mailtik.spacejelly.dev/api/forms/jamstack-handbook" method="POST" data-download-form>
+  <input type="text" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:0;height:0;border:0;padding:0;margin:0;overflow:hidden" name="phone" value="" readonly />
+  <input type="hidden" name="redirect" value="https://jamstackhandbook.com/" />
+  <input type="hidden" name="tags" value="location:jamstackhandbook.com" />
+  <input type="email" name="email" placeholder="Enter your email" required class={styles.emailInput} />
+  <button type="submit" class={`${button.button} ${styles.submitButton}`}><span>Download Free</span></button>
+</form>
